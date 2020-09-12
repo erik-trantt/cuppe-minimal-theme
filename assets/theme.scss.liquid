@@ -871,10 +871,6 @@ hr {
   }
 }
 
-.hr--large {
-  @extend hr;
-  margin: ($gutter * 2) auto;
-}
 
 .hr--left {
   margin-left: 0;
@@ -1400,13 +1396,13 @@ input[type="image"] {
   margin-bottom: -13px; // matches bottom padding of .grid-product__meta
 }
 
-@include at-query($max, $small) {
-  .grid-collage {
-    .grid-product__image-link {
-      height: $collageImageMedium;
-    }
-  }
-}
+// @include at-query($max, $small) {
+//   .grid-collage {
+//     .grid-product__image-link {
+//       height: $collageImageMedium;
+//     }
+//   }
+// }
 
 .grid-collage .grid-product__image-link {
   vertical-align: middle;
@@ -1895,15 +1891,15 @@ $shareCountBg: $colorBody;
     margin: 0;
 
     &:not(.shopify-section--full-width) {
-      margin-top: 110px;
+      // margin-top: 110px;
     }
   }
 
   .shopify-section {
-    margin-top: $gutter * 3;
+    // margin-top: $gutter * 3;
 
     @include at-query($max, $medium) {
-      margin-top: $gutter * 1.5;
+      // margin-top: $gutter * 1.5;
     }
   }
 }
@@ -3276,11 +3272,12 @@ button.mfp-arrow {
   position: relative;
   display: block;
   width: 100%;
+  padding: 0;
   background-color: $colorProductBackground;
   @include transition(opacity 0.4s ease-out);
 
   .grid-collage & {
-    padding: 0 20px;
+    // padding: 0 0;
   }
 
   &:hover,
@@ -3332,9 +3329,9 @@ button.mfp-arrow {
   position: relative;
   width: 100%;
 
-  @include at-query($max, $small) {
-    margin: 20px auto;
-  }
+  // @include at-query($max, $small) {
+  //   margin: 20px auto;
+  // }
 }
 
 .product--image {
@@ -3367,9 +3364,15 @@ button.mfp-arrow {
 }
 
 .grid-product__title {
-  @include bodyFontItalic;
+  // @include bodyFontItalic;
   font-size: em(floor($baseFontSize * 1.25));  //20px based on 16px base font size
+  
+  @include at-query($max, $small) {
+    font-size: $baseFontSize;
+  }
 }
+
+
 
 .grid-product__vendor {
   @include accentFontStack;
