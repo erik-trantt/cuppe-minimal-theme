@@ -1,0 +1,148 @@
+{% stylesheet %}
+  .page-width {
+    width: 100%;
+  }
+{% endstylesheet %}
+
+<div class="wrapper">
+  <div class="page-width">
+    {% for block in section.blocks %}
+      {%- assign block_width = 'one-whole' -%}
+      {%- assign image = block.settings.image -%}
+      {%- assign text = block.settings.text -%}
+      {%- assign left_or_right = "left" -%}
+      {%- assign image_order = 1 -%}
+      {%- if block.settings.alignment == false -%}
+        {%- assign left_or_right = "right" -%}
+        {%- assign image_order = 3 -%}
+      {%- endif -%}
+
+      {%- comment -%}
+        IMAGE template
+      {%- endcomment -%}
+      {% capture media_layout %}
+        <div class="one-half" style="order: {{ image_order }}">
+          {% if image != blank %}
+            <noscript>
+              {{ image | img_url: '600x600' | img_tag: image.alt, 'feature-row__image-no-js' }}
+            </noscript>
+            <div class="feature-row__image-wrapper" style="padding-top: {{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
+              {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <img class="feature-row__image lazyload"
+                src="{{ image | img_url: '300x300' }}"
+                data-src="{{ img_url }}"
+                data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                data-aspectratio="{{ image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{ image.alt | escape }}">
+          </div>
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+      {% endcapture %}
+      
+      {%- comment -%}
+        EACH ROW
+      {%- endcomment -%}
+      <div class="feature-row">
+        {{ media_layout }}
+
+        <div class="feature-row__text feature-row__text--{{ left_or_right }} one-half" style="order: 2;">
+          {% if text != blank %}
+            <div class="rte-setting featured-row__subtext">{{ text }}</div>
+          {% endif %}
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+    {%- comment -%}
+      Display no_content message when no element is found, e.g.:
+        All elements are removed, OR
+        Section is first created
+    {%- endcomment -%}
+    {% if section.blocks.size == 0 %}
+      <div class="wrapper">
+        <div class="grid">
+          <div class="grid__item">
+            <div class="rte text-center">
+              {{ 'home_page.onboarding.no_content' | t }}
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom grid",
+    "max_blocks": 9,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Advanced featured rows"
+      },
+      {
+        "type": "paragraph",
+        "content": "Each featured row can contain 1 block of text and 1 image, and the positions can be switched."
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Advanced Image block",
+        "type": "custom",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "promotion text"
+          },
+          {
+            "type": "checkbox",
+            "id": "alignment",
+            "label": "Image first?",
+            "default": true
+         }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom grid",
+        "category": {
+          "cs": "Pokročilé rozvržení",
+          "da": "Avanceret layout",
+          "de": "Komplizierteres Layout",
+          "en": "Advanced layout",
+          "es": "Diseño avanzado",
+          "fi": "Monimutkaisempi layout",
+          "fr": "Mise en page avancée",
+          "hi": "उन्नत लेआउट",
+          "it": "Layout avanzato",
+          "ja": "高度なレイアウト",
+          "ko": "고급 레이아웃",
+          "nb": "Avansert oppsett",
+          "nl": "Geavanceerde opmaak",
+          "pl": "Zaawansowany układ",
+          "pt-BR": "Layout avançado",
+          "pt-PT": "Esquema avançado",
+          "sv": "Avancerad layout",
+          "th": "เลย์เอาท์ขั้นสูง",
+          "tr": "Gelişmiş düzen",
+          "vi": "Bố cục nâng cao",
+          "zh-CN": "高级布局",
+          "zh-TW": "進階版面配置"
+        }
+      }
+    ]
+  }
+{% endschema %}
