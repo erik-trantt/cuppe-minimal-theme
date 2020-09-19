@@ -98,6 +98,8 @@
           {% endif %}
           </h3>
 
+          <button class="btn hero__cta" style="width: 10rem; margin: 1em 0;">View More</button>
+
         {%- if product.price_varies == false and variant.unit_price_measurement -%}
           {%- capture unit_price_separator -%}
             <span aria-hidden="true">/</span><span class="visually-hidden">&nbsp;{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
