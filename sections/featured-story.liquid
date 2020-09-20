@@ -1,3 +1,21 @@
+<style>
+.custom-story-styling {
+  margin: 0 auto;
+}
+
+.story-section-image {
+  border: 4px solid #000000;
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  top: -30px;
+  right: 0;
+  left: 0;
+}
+</style>
+
 <div class="wrapper">
   <div class="page-width feature-row">
     {% capture media_layout %}
@@ -6,9 +24,9 @@
           <noscript>
             {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
           </noscript>
-          <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+          <div class="feature-row__image-wrapper">
             {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-            <img class="feature-row__image lazyload"
+            <img class="story-section-image lazyload"
               src="{{ section.settings.image | img_url: '300x300' }}"
               data-src="{{ img_url }}"
               data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
@@ -22,7 +40,7 @@
       </div>
     {% endcapture %}
 
-    <div class="feature-row">
+    <div class="custom-story-styling">
       {% if section.settings.layout == 'left' %}
         {{ media_layout }}
       {% endif %}
