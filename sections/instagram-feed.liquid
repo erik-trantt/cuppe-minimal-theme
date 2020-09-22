@@ -14,13 +14,17 @@
   }
 {% endstylesheet %}
 
+{%- assign heading_text = section.settings.heading -%}
+
 <div class="wrapper" style="background-image: url('{{ 'backgrounds-bubbles.svg' | asset_url }}'); background-repeat: no-repeat; background-position: center center; background-clip: content-box; padding: 0;">
   <div class="page-width wrapper default-padding-y">
     <div class="section-header" style="display: flex; justify-content: space-between; align-content: center;">
-      <h2 class="h1 section-header__title text-center" style="flex: 1 1 0;">#bbtcuppé</h2>
+      <h2 class="h1 section-header__title text-center" style="flex: 1 1 0;">{{ heading_text }}</h2>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="black">
-        <path d="M33.3 0H5.7C2.6 0 0 2.5 0 5.6V32.4C0 35.5 2.6 38 5.7 38H33.3C36.4 38 39 35.5 39 32.4V5.6C39 2.5 36.4 0 33.3 0ZM19.6 28.9C13.9 28.9 9.3 24.5 9.3 18.9 9.3 13.4 13.9 8.9 19.6 8.9 25.2 8.9 29.9 13.4 29.9 18.9 29.9 24.5 25.2 28.9 19.6 28.9ZM31 11.1C29.1 11.1 27.6 9.6 27.6 7.8 27.6 6 29.1 4.5 31 4.5 32.9 4.5 34.4 6 34.4 7.8 34.4 9.6 32.9 11.1 31 11.1Z"></path><path d="M31 6.7C30.4 6.7 29.9 7.2 29.9 7.8 29.9 8.4 30.4 8.9 31 8.9 31.6 8.9 32.1 8.4 32.1 7.8 32.1 7.2 31.6 6.7 31 6.7Z"></path><path d="M19.6 11.1C15.2 11.1 11.6 14.6 11.6 18.9 11.6 23.2 15.2 26.7 19.6 26.7 24 26.7 27.6 23.2 27.6 18.9 27.6 14.6 24 11.1 19.6 11.1Z"></path></svg>
+        <a href="https://instagram.com/cuppe.co" title="CUPPÉ on Instagram">
+          <img class="lazyloaded" src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="black"><path d="M33.3 0H5.7C2.6 0 0 2.5 0 5.6V32.4C0 35.5 2.6 38 5.7 38H33.3C36.4 38 39 35.5 39 32.4V5.6C39 2.5 36.4 0 33.3 0ZM19.6 28.9C13.9 28.9 9.3 24.5 9.3 18.9 9.3 13.4 13.9 8.9 19.6 8.9 25.2 8.9 29.9 13.4 29.9 18.9 29.9 24.5 25.2 28.9 19.6 28.9ZM31 11.1C29.1 11.1 27.6 9.6 27.6 7.8 27.6 6 29.1 4.5 31 4.5 32.9 4.5 34.4 6 34.4 7.8 34.4 9.6 32.9 11.1 31 11.1Z"></path><path d="M31 6.7C30.4 6.7 29.9 7.2 29.9 7.8 29.9 8.4 30.4 8.9 31 8.9 31.6 8.9 32.1 8.4 32.1 7.8 32.1 7.2 31.6 6.7 31 6.7Z"></path><path d="M19.6 11.1C15.2 11.1 11.6 14.6 11.6 18.9 11.6 23.2 15.2 26.7 19.6 26.7 24 26.7 27.6 23.2 27.6 18.9 27.6 14.6 24 11.1 19.6 11.1Z"></path></svg>' alt="social media logo - Instagram" aria-hidden="true">
+          
+        </a>
       </div>
     </div>
     
