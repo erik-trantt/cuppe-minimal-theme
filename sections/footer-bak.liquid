@@ -1,60 +1,6 @@
-{% stylesheet %}
-  .custom-inline-icons {
-    display: flex;
-    justify-content: center;
-  }
-  .custom-inline-icons > li {
-    margin-right: 1rem;
-  }
-  footer * {
-    color: white !important;
-  }
-  .text-small {
-    font-size: 0.8rem;
-  }
-{% endstylesheet %}
-
-<!-- small--text-center -->
-<footer class="site-footer" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section" style="background-color: #0E1021; padding: 1rem;">
+<footer class="site-footer small--text-center" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
   <div class="wrapper">
-    <div class="newsletters" style="margin: 2rem auto;">
-        <div class="section-heading rte text-small">
-          <p>
-            JOIN THE CUPPÉ CLUB
-          </p>
-        </div>
-        <div class="section-subheading rte text-small">
-          <p>
-            Enter your e-mail for 5% off your next purchase
-          </p>
-        </div>
-      {% form 'customer' %}
-        {{ form.errors | default_errors }}
-        {% if form.posted_successfully? %}
-          <div class="newsletter--form">
-            <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
-          </div>
-        {% else %}
-          <label for="Email" class="newsletter__label hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
-          <input type="hidden" name="contact[tags]" value="newsletter">
-          <div class="newsletter--form">
-            <div class="input-group">
-              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_placeholder' | t }}" name="contact[email]" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
-              <span class="input-group-btn">
-                <button id="Subscribe" type="submit"
-                  class="btn newsletter__submit"
-                  aria-label="{{ 'general.newsletter_form.submit' | t }}">
-                  <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
-                  <span class="newsletter__submit-text--small">
-                    <span class="icon icon-arrow-right" aria-hidden="true"></span>
-                  </span>
-                </button>
-              </span>
-            </div>
-          </div>
-        {% endif %}
-      {% endform %}
-    </div>
+
     <div class="grid-uniform">
 
       {% comment %}
@@ -72,8 +18,7 @@
         {% assign num_footer_columns = num_footer_columns | plus: 1 %}
         {% assign extra_footer_linklist_column = false %}
         {% assign footer_linklist_count = linklists[section.settings.footer_link_list].links.size %}
-        {%- comment -%} footer_linklist_count > 2 means havings more than 2 main menu items will break the menu into multiple parts {%- endcomment -%}
-        {% if footer_linklist_count > 2 %}
+        {% if footer_linklist_count > 5 %}
           {% assign extra_footer_linklist_column = true %}
           {% comment %}
             We split the links so we'll need another column
@@ -138,36 +83,25 @@
         {% when 3 %}
           {% assign footer_column_width = 'one-third small--one-whole' %}
         {% when 4 %}
-          {%- comment -%} small--one-half => enable 2 columns on mobile views {%- endcomment -%}
           {% assign footer_column_width = 'large--one-quarter medium--one-half' %}
       {% endcase %}
 
       {% if linklists[section.settings.footer_link_list].links.size > 0 %}
-        <div class="grid__item {{ footer_column_width }} small--one-half">
+        <div class="grid__item {{ footer_column_width }}">
           <ul class="no-bullets site-footer__linklist">
             {% for link in linklists[section.settings.footer_link_list].links %}
 
-            {% comment %}
-            Create a second column
-            {% endcomment %}
-        {% if extra_footer_linklist_column and forloop.index == footer_linklist_split %}
+      {% comment %}
+        Create a second column
+      {% endcomment %}
+      {% if extra_footer_linklist_column and forloop.index == footer_linklist_split %}
           </ul>
         </div>
-        <div class="grid__item {{ footer_column_width }} small--one-half">
+        <div class="grid__item {{ footer_column_width }}">
           <ul class="no-bullets site-footer__linklist">
-        {% endif %}
+      {% endif %}
 
-              <li style="margin-bottom: 2rem;">
-                <!-- <a href="{{ link.url }}">{{ link.title }}</a> -->
-                <h6 style="margin-bottom: 1rem;"><b>{{ link.title }}</b></h6>
-                {% if link.links.size > 0 %}
-                  <ul class="no-bullets">
-                  {% for sub_link in link.links %}
-                    <li><a href="{{ sub_link.url }}">{{ sub_link.title }}</a></li>
-                  {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
 
             {% endfor %}
           </ul>
@@ -176,44 +110,84 @@
 
       {% if footer_social_enable %}
         <div class="grid__item {{ footer_column_width }}">
-            <ul class="no-bullets social-icons custom-inline-icons">
+            <ul class="no-bullets social-icons">
               {% if settings.social_facebook_link != blank %}
                 <li>
                   <a href="{{ settings.social_facebook_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
-                    <img class="lazyload"
-                      src="{{ "logos-facebook.svg" | asset_url }}"
-                      alt="social media logo - Facebook"
-                      class="icon icon-facebook" aria-hidden="true" />
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_instagram_link != blank %}
-                <li>
-                  <a href="{{ settings.social_instagram_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
-                    <img class="lazyload"
-                      src="{{ "logos-instagram.svg" | asset_url }}"
-                      alt="social media logo - Instagram"
-                      class="icon icon-instagram" aria-hidden="true" />
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_pinterest_link != blank %}
-                <li>
-                  <a href="{{ settings.social_pinterest_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
-                    <img class="lazyload"
-                      src="{{ "logos-pinterest.svg" | asset_url }}"
-                      alt="social media logo - Pinterest"
-                      class="icon icon-pinterest" aria-hidden="true" />
+                    <span class="icon icon-facebook" aria-hidden="true"></span>
+                    Facebook
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_twitter_link != blank %}
                 <li>
                   <a href="{{ settings.social_twitter_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">
-                    <img class="lazyload"
-                      src="{{ "logos-twitter.svg" | asset_url }}"
-                      alt="social media logo - Twitter"
-                      class="icon icon-twitter" aria-hidden="true" />
+                    <span class="icon icon-twitter" aria-hidden="true"></span>
+                    Twitter
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_pinterest_link != blank %}
+                <li>
+                  <a href="{{ settings.social_pinterest_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
+                    <span class="icon icon-pinterest" aria-hidden="true"></span>
+                    Pinterest
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_instagram_link != blank %}
+                <li>
+                  <a href="{{ settings.social_instagram_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
+                    <span class="icon icon-instagram" aria-hidden="true"></span>
+                    Instagram
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_snapchat_link != blank %}
+                <li>
+                  <a href="{{ settings.social_snapchat_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}">
+                    <span class="icon icon-snapchat" aria-hidden="true"></span>
+                    Snapchat
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_google_plus_link != blank %}
+                <li>
+                  <a href="{{ settings.social_google_plus_link | escape }}" rel="publisher" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Google Plus' }}">
+                    <span class="icon icon-google_plus" aria-hidden="true"></span>
+                    Google Plus
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_tumblr_link != blank %}
+                <li>
+                  <a href="{{ settings.social_tumblr_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}">
+                    <span class="icon icon-tumblr" aria-hidden="true"></span>
+                    Tumblr
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_youtube_link != blank %}
+                <li>
+                  <a href="{{ settings.social_youtube_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}">
+                    <span class="icon icon-youtube" aria-hidden="true"></span>
+                    YouTube
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_vimeo_link != blank %}
+                <li>
+                  <a href="{{ settings.social_vimeo_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}">
+                    <span class="icon icon-vimeo" aria-hidden="true"></span>
+                    Vimeo
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_fancy_link != blank %}
+                <li>
+                  <a href="{{ settings.social_fancy_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Fancy' }}">
+                    <span class="icon icon-fancy" aria-hidden="true"></span>
+                    Fancy
                   </a>
                 </li>
               {% endif %}
@@ -280,12 +254,12 @@
           {%- endif -%}
         {%- endform -%}
 
-        <p class="site-footer__copyright-content text-center">Copyright &copy;{{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }}.<br>{{ powered_by_link }}</p>
+        <p class="site-footer__copyright-content">&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }}<br>{{ powered_by_link }}</p>
 
         {%- if section.settings.show_payment_icons -%}
           {%- unless shop.enabled_payment_types == empty -%}
             <span class="visually-hidden">{{ 'general.payment.method' | t }}</span>
-            <ul class="inline-list payment-icons site-footer__payment-icons text-center">
+            <ul class="inline-list payment-icons site-footer__payment-icons">
               {%- for type in shop.enabled_payment_types -%}
                 <li>
                   {{ type | payment_type_svg_tag: class: 'icon' }}
