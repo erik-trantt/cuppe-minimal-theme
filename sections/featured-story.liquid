@@ -1,6 +1,7 @@
 <style>
 .custom-story-styling {
   margin: 0 auto;
+  padding-bottom: 2rem;
 }
 
 .story-section-image {
@@ -14,9 +15,12 @@
   right: 0;
   left: 0;
 }
+.our-story-section {
+  background-color: #E7D5CA;
+}
 </style>
 
-<div class="wrapper">
+<div class="wrapper our-story-section">
   <div class="page-width feature-row">
     {% capture media_layout %}
       <div class="feature-row__item">
@@ -45,18 +49,24 @@
         {{ media_layout }}
       {% endif %}
 
-      <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
+      <div class="feature-row__item feature-row__text--{{ section.settings.layout }}">
         {% if section.settings.title != blank %}
-          <h2 class="h3">{{ section.settings.title | escape }}</h2>
+          <h2 class="h3 text-center">{{ section.settings.title | escape }}</h2>
         {% endif %}
         {% if section.settings.text != blank %}
           <div class="rte-setting featured-row__subtext">{{ section.settings.text }}</div>
         {% endif %}
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <a href="{{ section.settings.button_link }}" class="btn">
-            {{ section.settings.button_label | escape }}
-          </a>
+          <div class="text-center">
+            <a href="{{ section.settings.button_link }}" class="btn" style="margin-top: 2rem; padding: 20px 40px;">
+              {{ section.settings.button_label | escape }}
+            </a>
+          </div>
         {% endif %}
+
+        <div class="text-center">
+          <a href="/pages/reusable-bubble-tea-tumbler-about-us" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; padding: 2rem 0; display: block;">Learn more</a>
+        </div>
       </div>
 
       {% if section.settings.layout == 'right' %}
