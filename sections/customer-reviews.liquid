@@ -1,0 +1,86 @@
+{%- assign heading_text = section.settings.heading -%}
+
+<div id="customer-review-summary" style="padding: 2rem;">
+  <div class="text-center">
+    <h2 class="h1 section-header__title text-center">
+      {{ heading_text }}
+    </h2>
+  </div>
+  
+  <!-- Carousel view -->
+  <div style="height: 450px; min-height: 450px;">
+    <div id="stamped-reviews-widget" 
+        data-widget-type="carousel" 
+        data-title="What Our Customers Say" 
+        data-auto-play="true" 
+        data-auto-play-speed="2000" 
+        data-take="5" 
+        data-min-rating="4" 
+        data-fill-empty="false" 
+        data-show-avatar="false"
+        data-random="false">
+    </div>
+  </div>
+  <!-- END Carousel view -->
+  
+  <style>
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle {
+      width: 100%;
+      margin: 0 !important;
+      text-align: center;
+    }
+    
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-fa-star::before,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-fa-star-half-o::before {
+      font-size: 30px !important;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-title,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-carousel-subtitle-count,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-buttons,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-date,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .stamped-reviews-rating,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .stamped-reviews-image
+    {
+      display: none !important;
+    }
+  
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-message {
+      margin-left: 0 !important;
+      text-align: center;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-title {
+      text-align: center;
+      font-size: 24px;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll {
+      height: 400px !important;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-author {
+      text-align: center;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll:before {
+      border: none;
+    }
+  </style>
+</div>
+
+
+{% schema %}
+{
+  "name": "Stamped Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Customer Reviews"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Stamped.io",
+      "name":"Reviews by Stamped.io"
+    }
+  ]
+}
+{% endschema %}
