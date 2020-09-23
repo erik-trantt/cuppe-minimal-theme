@@ -10,57 +10,59 @@
   }
 {% endstylesheet %}
 
-<div class="wrapper" style="width: 100%; background-color: #F1ECE4; padding-bottom: 2rem;">
-  <div style="display: flex; justify-content: space-around;">
-    <img class="lazyload"
-      src="{{ 'icons_waves.svg' | asset_url }}"
-      alt="convenience highlights" 
-      style="margin-top: -2rem;"
-    />
-  </div>
-
-  <div class="page-width">
-    {% for block in section.blocks %}
-      {%- case block.type -%}
-        {%- when "block-heading" -%}
-          <div style="text-align: center; margin: 2rem;" {{ block.shopify_attributes }}>
-            <h2>{{ block.settings.text | escape }}</h2>
-          </div>
-
-        {%- when "block-image" -%}
-          <div class="feature-row" style="margin-bottom: 1rem;" {{ block.shopify_attributes }}>
-            {% include 'snippet_advanced-grid-image-block' %}
-          </div>
-
-        {%- when "block-paragraph" -%}
-          <div style="text-align: center; margin: 2rem;" {{ block.shopify_attributes }}>
-            {{ block.settings.richtext }}
-          </div>
-        
-        {%- else -%}
-      {%- endcase -%}
-    {% endfor %}
-
-    {%- comment -%}
-      Display no_content message when no element is found, e.g.:
-        All elements are removed, OR
-        Section is first created
-    {%- endcomment -%}
-    {% if section.blocks.size == 0 %}
-      <div class="wrapper">
-        <div class="grid">
-          <div class="grid__item">
-            <div class="rte text-center">
-              {{ 'home_page.onboarding.no_content' | t }}
+<div style="width: 100%; background-color: #F1ECE4; padding-bottom: 2rem;">
+  <div class="wrapper">
+    <div style="display: flex; justify-content: space-around;">
+      <img class="lazyload"
+        src="{{ 'icons_waves.svg' | asset_url }}"
+        alt="convenience highlights" 
+        style="margin-top: -2rem;"
+      />
+    </div>
+  
+    <div class="page-width">
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {%- when "block-heading" -%}
+            <div style="text-align: center; margin: 2rem;" {{ block.shopify_attributes }}>
+              <h2>{{ block.settings.text | escape }}</h2>
+            </div>
+  
+          {%- when "block-image" -%}
+            <div class="feature-row" style="margin-bottom: 1rem;" {{ block.shopify_attributes }}>
+              {% include 'snippet_advanced-grid-image-block' %}
+            </div>
+  
+          {%- when "block-paragraph" -%}
+            <div style="text-align: center; margin: 2rem;" {{ block.shopify_attributes }}>
+              {{ block.settings.richtext }}
+            </div>
+          
+          {%- else -%}
+        {%- endcase -%}
+      {% endfor %}
+  
+      {%- comment -%}
+        Display no_content message when no element is found, e.g.:
+          All elements are removed, OR
+          Section is first created
+      {%- endcomment -%}
+      {% if section.blocks.size == 0 %}
+        <div class="wrapper">
+          <div class="grid">
+            <div class="grid__item">
+              <div class="rte text-center">
+                {{ 'home_page.onboarding.no_content' | t }}
+              </div>
             </div>
           </div>
-        </div>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
-  </div>
-
-  <div style="margin-top: 2rem; text-align: center;">
-    <a style="text-decoration: underline; font-size: 1.15rem; line-height: 60px;" href="/collections/all" title="All Products">Shop all</a>
+  
+    <div style="margin-top: 2rem; text-align: center;">
+      <a style="text-decoration: underline; font-size: 1.15rem; line-height: 60px;" href="/collections/all" title="All Products">Shop all</a>
+    </div>
   </div>
 </div>
 
