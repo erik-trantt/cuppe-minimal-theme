@@ -2,13 +2,43 @@
 {% comment %}
 
   This snippet is used for "/sections/advanced-grid-content.liquid".
+  Schema settings for icons:
+  {
+    "type": "select",
+    "id": "icon",
+    "label": "Icon",
+    "options": [
+      {
+        "value": "icons-circle",
+        "label": "Circle"
+      },
+      {
+        "value": "icons-double-circles",
+        "label": "Double Circles"
+      },
+      {
+        "value": "icons-water-drop",
+        "label": "Water Drop"
+      },
+      {
+        "value": "icons-cup",
+        "label": "Cup"
+      }
+    ]
+  },
 
 {% endcomment %}
+
+<style>
+  .cuppe-featured-image {
+    max-width: 300px;
+    border-radius: 50%;
+  }
+</style>
 
 {%- comment -%} Featured Image {%- endcomment -%}
 {%- assign block_width = 'one-whole' -%}
 {%- assign image = block.settings.image -%}
-{%- assign icon_file_name = "icon_name_to_place.svg" | replace: 'icon_name_to_place', block.settings.icon -%}
 {%- assign text = block.settings.text | strip_newlines -%}
 {%- assign left_or_right = "left" -%}
 {%- assign image_order = 1 -%}
@@ -16,6 +46,11 @@
   {%- assign left_or_right = "right" -%}
   {%- assign image_order = 3 -%}
 {%- endif -%}
+
+{%- comment -%}
+  Temporary disabled settings
+  {%- assign icon_file_name = "icon_name_to_place.svg" | replace: 'icon_name_to_place', block.settings.icon -%}
+{%- endcomment -%}
 
 {%- comment -%} Capture block - Image {%- endcomment -%}
 {% capture media_layout %}
@@ -26,7 +61,7 @@
       </noscript>
       <div class="feature-row__image-wrapper" style="padding-top: {{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
         {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-        <img class="feature-row__image lazyload"
+        <img class="feature-row__image lazyload cuppe-featured-image"
           src="{{ image | img_url: '300x300' }}"
           data-src="{{ img_url }}"
           data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
@@ -41,26 +76,27 @@
 {% endcapture %}
 
 {%- comment -%} EACH ROW {%- endcomment -%}
-<!-- <div class="feature-row" style="padding: 2rem 0;"> -->
-  {{ media_layout }}
+{{ media_layout }}
 
-  <div class="row__text row__text--{{ left_or_right }} one-half" style="order: 2;">
-    <div style="text-align: center;">
+<div class="row__text row__text--{{ left_or_right }} one-half" style="order: 2;">
+  <div style="text-align: center;">
+    {%- comment -%}
+      Temporary disabled settings
       {% if icon_file_name != blank %}
         <img class="lazyload"
         src="{{ icon_file_name | asset_url }}"
-        alt="convenience highlights" 
+        alt="convenience highlights"
         style=""
         />
       {% endif %}
-      {% if text != blank %}
-        {% for text_line in text %}
-          {%- unless text_line == '' -%}
-            {{ text_line }}
-          {%- endunless -%}
-        {% endfor %}
-      {% endif %}
-    </div>
-  </div>
+    {%- endcomment -%}
 
-<!-- </div> -->
+    {% if text != blank %}
+      {% for text_line in text %}
+        {%- unless text_line == '' -%}
+          {{ text_line }}
+        {%- endunless -%}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
