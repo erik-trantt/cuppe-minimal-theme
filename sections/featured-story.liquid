@@ -16,10 +16,11 @@
 }
 .our-story-section {
   background-color: #E7D5CA;
+
 }
 </style>
 
-<div class="wrapper our-story-section">
+<div class="our-story-section" style="width: 100%; background: #E7D5CA">
   <div class="page-width feature-row">
     {% capture media_layout %}
       <div class="feature-row__item">
@@ -48,7 +49,7 @@
         {{ media_layout }}
       {% endif %}
 
-      <div class="feature-row__item feature-row__text--{{ section.settings.layout }}">
+      <div class="feature-row__item feature-row__text--{{ section.settings.layout }} wrapper">
         {% if section.settings.title != blank %}
           <h2 class="h3 text-center">{{ section.settings.title | escape }}</h2>
         {% endif %}
