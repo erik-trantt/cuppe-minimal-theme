@@ -25,11 +25,8 @@
   
   <style>
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle {
-      width: 100%;
-      margin: 0 !important;
-      text-align: center;
+      display: none;
     }
-    
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-fa-star::before,
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-fa-star-half-o::before {
       font-size: 30px !important;
@@ -37,11 +34,23 @@
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-title,
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-carousel-subtitle-count,
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-buttons,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-date,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .stamped-reviews-rating,
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .stamped-reviews-image
     {
       display: none !important;
+    }
+    
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .block {
+      display: inline-flex;
+      flex-direction: column;
+    }
+
+    #stamped-reviews-widget[data-widget-type="carousel"] .block .stamped-reviews-date {
+      order: 2;
+      text-align: center;
+    }
+
+    #stamped-reviews-widget[data-widget-type="carousel"] .block .stamped-ratings-wrapper {
+      order: 1;
     }
   
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-message {
@@ -55,7 +64,8 @@
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll {
       height: 400px !important;
     }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-author {
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-author,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-rating {
       text-align: center;
     }
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll:before {
