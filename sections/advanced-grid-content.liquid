@@ -1,16 +1,68 @@
 {% stylesheet %}
-  .page-width {
+  /* MOBILE FIRST */
+  .cuppe__grid {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+  }
+  .cuppe__grid-item {
+    height: 100%;
+    display: flex;
+    flex: 1 0 0%;
+    flex-flow: row wrap;
+  }
+  .cuppe__grid-item > div {
+    width: 50%;
+  }
+  .cuppe__grid li {
     width: 100%;
+    align-self: start;
   }
-  .row__text--left {
-    padding-right: 5px;
+  @media screen and (min-width: 590px) {
+    /* DESKTOP VIEW */
+    .cuppe__grid {
+      display: flex;
+      /*flex-flow: row wrap;*/
+      /*justify-content: space-between;*/
+    }
+    .cuppe__grid-item {
+      flex-flow: column wrap;
+    }
+    .cuppe__grid-item > * {
+      width: 100%;
+      max-width: 200px;
+    }
+    .cuppe__grid li {
+      height: 300px;
+      /*width: {{ 100.0 | divided_by: section.blocks.size }}%;*/
+
+    }
+    .image-orders {
+      order: 0 !important;
+    }
   }
-  .row__text--right {
-    padding-left: 5px;
+  .cuppe-img {
+    flex: 1 1 auto;
+    min-height: 1px;
+    flex-flow: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .center {
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+  .cuppe-featured-image {
+    width: 100%;
+    border-radius: 50%;
   }
 {% endstylesheet %}
 
-<div style="width: 100%; background-color: #F1ECE4; padding-bottom: 2rem;">
+<div class="page-width-100" style="background-color: #F1ECE4; padding-bottom: 2rem;">
   <div class="wrapper">
     <div style="display: flex; justify-content: space-around;">
       <img class="lazyload"
@@ -20,27 +72,26 @@
       />
     </div>
 
-    <div class="page-width">
-      {% for block in section.blocks %}
-        {%- case block.type -%}
-          {%- when "block-heading" -%}
-            <div style="text-align: center; margin: 2rem;" {{ block.shopify_attributes }}>
-              <h2>{{ block.settings.text | escape }}</h2>
-            </div>
+    <div class="page-width-100">
+      <!-- Section title -->
+      <div style="text-align: center; margin: 2rem;">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </div>
 
-          {%- when "block-image" -%}
-            <div class="feature-row" style="margin-bottom: 1rem;" {{ block.shopify_attributes }}>
-              {% include 'snippet_advanced-grid-image-block' %}
-            </div>
-
-          {%- when "block-paragraph" -%}
-            <div style="text-align: center; margin: 2rem;" {{ block.shopify_attributes }}>
-              {{ block.settings.richtext }}
-            </div>
-
-          {%- else -%}
-        {%- endcase -%}
-      {% endfor %}
+      <!-- Blocks of features -->
+      <div class="wrapper">
+        <ul class="cuppe__grid">
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when "block-image" -%}
+                <li class="" style="margin-bottom: 1rem;" {{ block.shopify_attributes }} >
+                  {% include 'snippet_advanced-grid-image-block' %}
+                </li>
+              {%- else -%}
+            {%- endcase -%}
+          {% endfor %}
+        </ul>
+      </div>
 
       {%- comment -%}
         Display no_content message when no element is found, e.g.:
@@ -56,12 +107,17 @@
               </div>
             </div>
           </div>
-      </div>
+        </div>
       {% endif %}
     </div>
 
+    <!-- Button link -->
     <div style="margin-top: 2rem; text-align: center;">
-      <a style="text-decoration: underline; font-size: 1.15rem; line-height: 60px;" href="/collections/all" title="All Products">Shop all</a>
+      <a class="" style="text-decoration: underline; font-size: 1.15rem; line-height: 60px;" 
+          href="{{ section.settings.button_link }}" 
+          title="{{ section.settings.button_label }}">
+        {{ section.settings.button_label | escape }}
+      </a>
     </div>
   </div>
 </div>
@@ -78,11 +134,26 @@
       {
         "type": "paragraph",
         "content": "Each featured row can contain 1 block of text and 1 image, and the positions can be switched."
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
       }
     ],
     "blocks": [
       {
-        "name": "Advanced Image block",
+        "name": "Image block",
         "type": "block-image",
         "settings": [
           {
@@ -100,28 +171,6 @@
             "id": "alignment",
             "label": "Image first?",
             "default": true
-         }
-        ]
-      },
-      {
-        "name": "Custom header",
-        "type": "block-heading",
-        "settings": [
-          {
-            "type": "text",
-            "id": "text",
-            "label": "Heading"
-          }
-        ]
-      },
-      {
-        "name": "Paragraph",
-        "type": "block-paragraph",
-        "settings": [
-          {
-            "type": "richtext",
-            "id": "richtext",
-            "label": "Paragraph"
           }
         ]
       }
