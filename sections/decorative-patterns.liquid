@@ -8,15 +8,18 @@
     </g>
   </defs>
 </svg>
-  
-<style>
-  .svg-auto-fill-color svg { color: currentColor; }
-</style>
 
 {%- assign color = section.settings.pattern_color -%}
 {%- assign pattern = section.settings.pattern_choice -%}
-
-<div class="svg-auto-fill-color" style="color: {{ color }};">
+{%- assign display_on = section.settings.display_on -%}
+{%- case section.settings.display_on -%}
+  {%- when 'mobile' -%}
+    {%- assign display_on = 'show--pattern-mobile' -%}
+  {%- when 'desktop' -%}
+    {%- assign display_on = 'show--pattern-desktop' -%}
+{%- endcase -%}
+  
+<div class="cuppe-pattern svg-inherit-color {{ display_on }}" style="color: {{ color }};">
   <svg width="100%" height="100%" viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg">
     <use xlink:href="#{{ pattern }}"></use>
   </svg>
@@ -46,6 +49,26 @@
         {
           "value": "waves-bottom",
           "label": "Waves bottom"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "display_on",
+      "label": "Display on",
+      "info": "Only mobile, desktop or all",
+      "options": [
+        {
+          "value": "mobile",
+          "label": "Mobile"
+        },
+        {
+          "value": "desktop",
+          "label": "Desktop"
+        },
+        {
+          "value": "all",
+          "label": "All"
         }
       ]
     }
