@@ -1,0 +1,54 @@
+/*============================================================================
+  Brooklyn by Shopify
+  Custom stylings for Cuppé shop
+==============================================================================*/
+/*============================================================================
+  Dependency-free breakpoint mixin
+    - http://blog.grayghostvisuals.com/sass/sass-media-query-mixin/
+==============================================================================*/
+$min: min-width;
+$max: max-width;
+@mixin at-query ($constraint, $viewport1, $viewport2:null) {
+  @if $constraint == $min {
+    @media screen and ($min: $viewport1) {
+      @content;
+    }
+  } @else if $constraint == $max {
+    @media screen and ($max: $viewport1) {
+      @content;
+    }
+  } @else {
+    @media screen and ($min: $viewport1) and ($max: $viewport2) {
+      @content;
+    }
+  }
+}
+
+/*============================================================================
+  Flexbox prefix mixins from Bourbon
+    https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_flex-box.scss
+==============================================================================*/
+$viewportIncrement: 1px;
+$siteWidth: 1050px;
+$small: 590px;
+$medium: 768px;
+$large: 769px;
+$xlarge: $siteWidth + $viewportIncrement;
+
+$postSmall: $small + $viewportIncrement;
+$preMedium: $medium - $viewportIncrement;
+$preLarge: $large - $viewportIncrement;
+
+/*================ Vendor-specific styles ================*/
+/* for Decorative-pattern.liquid section */
+.cuppe-pattern {
+  &.svg-inherit-color { 
+    svg { fill: currentColor; }
+  }
+  &.show--pattern-mobile {
+    @include at-query($min, $small) { display: none; }
+  }
+  &.show--pattern-desktop {
+    @include at-query($max, $small) { display: none; }
+  }
+}
