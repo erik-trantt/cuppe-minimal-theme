@@ -1,0 +1,32 @@
+
+<div id="customer-review-summary" style="padding: 2rem;">
+  <div class="section-header text-center">
+    <h2 class="h1 section-header__title text-center">
+      Reviews
+    </h2>
+  </div>
+  
+  <!-- Carousel view -->
+  <div style="height: 450px; min-height: 450px;">
+    <div id="stamped-reviews-widget" 
+      data-widget-type="carousel" 
+      data-title="Reviews for product" 
+      data-auto-play="true" 
+      data-auto-play-speed="2000" 
+      data-take="6" 
+      data-product-ids="1873648091171" 
+      data-limit-words="200" 
+      data-min-rating="1" 
+      data-random="false">
+    </div>
+  </div>
+  <!-- END Carousel view -->
+  <style>
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-title,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-buttons,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll::before {
+      display: none;
+    }
+  </style>
+</div>
