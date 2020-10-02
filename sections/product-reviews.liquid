@@ -2,19 +2,19 @@
 <div id="customer-review-summary" style="padding: 2rem;">
   <div class="section-header text-center">
     <h2 class="h1 section-header__title text-center">
-      Reviews
+      Reviews for {{ product.name }}
     </h2>
   </div>
   
   <!-- Carousel view -->
-  <div style="height: 450px; min-height: 450px;">
+  <div style="height: 600px; min-height: 450px;">
     <div id="stamped-reviews-widget" 
       data-widget-type="carousel" 
       data-title="Reviews for product" 
       data-auto-play="true" 
       data-auto-play-speed="2000" 
       data-take="6" 
-      data-product-ids="1873648091171" 
+      data-product-ids="{{ product.id }}" 
       data-limit-words="200" 
       data-min-rating="1" 
       data-random="false">
