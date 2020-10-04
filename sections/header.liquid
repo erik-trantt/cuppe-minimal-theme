@@ -71,6 +71,7 @@
   }
 }
 
+
 {%- endstyle -%}
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-template="{{ request.page_type }}">
   <div id="NavDrawer" class="drawer drawer--left">
@@ -100,10 +101,17 @@
             .announcement-bar__message {
               color: {{ section.settings.color_text }};
             }
+
+            .sticky-announcement {
+              position: fixed;
+              top: 0;
+              width: 100%;
+            }
+
           </style>
 
           {% if section.settings.link == blank %}
-            <div class="announcement-bar">
+            <div class="announcement-bar sticky-announcement">
           {% else %}
             <a href="{{ section.settings.link }}" class="announcement-bar announcement-bar--link">
           {% endif %}
@@ -119,7 +127,9 @@
         {% endif %}
       {% endif %}
 
-      <header class="site-header" role="banner"{% if section.settings.transparent_header_enable %} data-transparent-header="true"{% endif %}>
+      <header class="site-header" style="
+    padding-top: 41px;
+" role="banner"{% if section.settings.transparent_header_enable %} data-transparent-header="true"{% endif %}>
         <div class="wrapper">
           <div class="grid--full grid--table">
             <div class="grid__item large--hide large--one-sixth one-quarter">
