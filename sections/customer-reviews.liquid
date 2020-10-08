@@ -8,13 +8,14 @@
   </div>
   
   <!-- Carousel view -->
-  <div style="height: 450px; min-height: 450px;">
+  <div>
     <div id="stamped-reviews-widget" 
         data-widget-type="carousel" 
         data-title="What Our Customers Say" 
         data-auto-play="true" 
         data-auto-play-speed="2000" 
-        data-take="5" 
+        data-take="6" 
+        data-limit-words="70"
         data-min-rating="4" 
         data-fill-empty="false" 
         data-show-avatar="false"
@@ -24,43 +25,42 @@
   <!-- END Carousel view -->
   
   <style>
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle {
-      width: 100%;
-      margin: 0 !important;
-      text-align: center;
-    }
-    
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-fa-star::before,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-fa-star-half-o::before {
-      font-size: 30px !important;
-    }
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-title,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle .stamped-carousel-subtitle-count,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle,
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-buttons,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-date,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .stamped-reviews-rating,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .stamped-reviews-image
-    {
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .stamped-reviews-image,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll:before{
       display: none !important;
     }
-  
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll {
+      height: 350px !important;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .block {
+      display: inline-flex;
+      flex-direction: column;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .block .stamped-ratings-wrapper {
+      order: 1;
+    }
+    #stamped-reviews-widget[data-widget-type="carousel"] .block .stamped-reviews-date {
+      order: 2;
+      text-align: left;
+    }
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-message {
       margin-left: 0 !important;
-      text-align: center;
+      text-align: left;
     }
     #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-title {
-      text-align: center;
-      font-size: 24px;
+      text-align: left;
+      font-size: 1rem !important;
+      white-space: normal !important;
     }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll {
-      height: 400px !important;
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-author,
+    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-rating {
+      text-align: left;
+      margin-left: 0 !important;
     }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-author {
-      text-align: center;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll:before {
-      border: none;
-    }
+
   </style>
 </div>
 
