@@ -289,11 +289,11 @@
       "unit_price": "Unit price"
     },
     "product": {
-      "sold_out": "Sold Out",
+      "sold_out": "Sold out",
       "sold_out_html": "Sold<br \/> Out",
       "unavailable": "Unavailable",
       "quantity": "Quantity",
-      "add_to_cart": "Add to Cart",
+      "add_to_cart": "Pre-Order ",
       "full_details": "Full details",
       "view_in_space": "View in your space",
       "view_in_space_label": "View in your space, loads item in augmented reality window",
@@ -319,6 +319,11 @@
       "shop_link": "Start shopping",
       "print": "Print",
       "add_to_apple_wallet": "Add to Apple Wallet"
+    }
+  },
+  "shopify": {
+    "links": {
+      "powered_by_shopify": "\n"
     }
   }
 }
