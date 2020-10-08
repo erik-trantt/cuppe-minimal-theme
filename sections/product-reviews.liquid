@@ -1,69 +1,22 @@
 <div id="customer-review-summary">
-  <style>
-    #stamped-reviews-widget[style="display: none;"] + #noreview {
-      visibility: visible !important;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-title,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-buttons,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-subtitle,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll::before,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-image
-    {
-      display: none !important;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll {
-      height: 350px !important;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll .block {
-      display: inline-flex;
-      flex-direction: column;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .block .stamped-ratings-wrapper {
-      order: 1;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .block .stamped-reviews-date {
-      order: 2;
-      text-align: left;
-    }
-
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-message {
-      margin-left: 0 !important;
-      text-align: left;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-title {
-      text-align: left;
-      font-size: 1rem !important;
-      white-space: normal !important;
-    }
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-author,
-    #stamped-reviews-widget[data-widget-type="carousel"] .stamped-reviews-rating {
-      text-align: left;
-      margin-left: 0 !important;
-    }
-  </style>
-  
   <div class="section-header text-left">
     <h2 class="h1 section-header__title">
       Reviews
     </h2>
   </div>
   
-  <!-- Carousel view -->
-  <div>
-    <div id="stamped-reviews-widget" 
-      data-widget-type="carousel" 
-      data-title="Reviews" 
-      data-auto-play="true" 
-      data-auto-play-speed="3000" 
-      data-take="6" 
-      data-product-ids="{{ product.id }}" 
-      data-limit-words="70" 
-      data-min-rating="3" 
-      data-fill-empty="false" 
-      data-show-avatar="false"
-      data-random="false">
-    </div>
-    <div id="noreview" style="position: absolute;visibility: hidden;">No review yet</div>
+  <!--Start Stamped.io Auto Installation-->
+  <div id="stamped-main-widget" 
+      class="stamped-main-widget" 
+      data-widget-style="standard" 
+      data-product-id="{{ product.id }}" 
+      data-name="{{ product.title | escape }}" 
+      data-url="{{ shop.url }}{{ product.url }}" 
+      data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+      data-description="{{ product.description | escape }}" 
+      data-product-sku="{{product.handle}}" 
+      data-product-type="{{product.type}}">
+    {{ product.metafields.stamped.reviews }}
   </div>
-  <!-- END Carousel view -->
+  <!--End Stamped.io Auto Installation-->
 </div>
