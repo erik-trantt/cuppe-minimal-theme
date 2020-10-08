@@ -39,8 +39,8 @@ $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
 $preLarge: $large - $viewportIncrement;
 
-/*================ Vendor-specific styles ================*/
-/* for Decorative-pattern.liquid section */
+/*================ Cuppe-specific styles ================*/
+/* for Decorative-pattern.liquid section starts */
 .cuppe-pattern {
   &.svg-inherit-color { 
     svg { fill: currentColor; }
@@ -52,14 +52,35 @@ $preLarge: $large - $viewportIncrement;
     @include at-query($max, $small) { display: none; }
   }
 }
+/* Decorative-pattern.liquid section ends */
 
 /* UTILITY CLASS */
 .page-width-100 {
   width: 100%;
 }
+.section-header__title {
+  padding: 0 30px;
+}
+.site-header .burger-icon {
+  background-color: black !important;
+}
+#AccessibleNav .site-nav__link,
+.site-nav--mobile .site-nav__link {
+  color: black !important;
+}
+#AccessibleNav .site-nav__link:hover, 
+.site-nav--mobile .site-nav__link:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+.section-header { padding-top: 50px; }
 
-/* for expandable product description & FAQs */
-/*--------Accordion-------*/
+// Custom style for header title of Rich Text section
+.section-header__title { text-align: left; }
+// Custom style for header title of Rich Text section to override the store-wide text-align: left 
+.rich-text-section .section-header__title { text-align: center; }
+
+/* accordion for expandable product description & FAQs */
+/*-------- Accordion starts -------*/
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 .cuppe-acc-kontainer {
   width: 100%;
@@ -89,6 +110,7 @@ $preLarge: $large - $viewportIncrement;
   font-weight: bold !important;
   box-sizing: border-box;
   z-index: 100;
+  font-style: normal;
 }
 
 .cuppe-acc-kontainer input{
@@ -118,4 +140,39 @@ $preLarge: $large - $viewportIncrement;
   font-size: 16px;
   padding: 20px;
   transition: 0.5s;
+}
+/*--------Accordion ends-------*/
+
+/*================ Page-specific styles ================*/
+/* Our Story section on Homepage */
+.our-story-section .featured-row__subtext {
+  max-width: 600px;
+}
+/* Grid product items as used in Product Recommendation */
+.grid-product__image-link {
+  background-color: transparent;
+}
+.product-recommendations {
+  margin-top: 0;
+}
+.product-single__thumbnails img {
+  max-height: 80px !important;
+}
+.product-single__price, .product-single__price--compare-at {
+  font-size: 1.5em;
+}
+.product-single__meta .product-single__title,
+.product-single__meta div[itemprop="offers"],
+.product-rating-stampedio {
+  text-align: left;
+}
+.product-single__meta div[itemprop="offers"] hr {
+  margin: 20px 0;
+}
+.product-single__meta .single-option-radio {
+  padding-left: 0;
+  padding-right: 0;
+}
+.product-single__meta .single-option-radio label {
+  margin: 0;
 }
