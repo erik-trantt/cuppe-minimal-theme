@@ -44,7 +44,7 @@
 
 <div class="grid__item grid-product {{ grid_item_width }}{% if sold_out %} is-sold-out{% endif %}">
   <div class="grid-product__wrapper">
-    <div class="grid-product__image-wrapper">
+    <div class="grid-product__image-wrapper" style="height: 250px;">
       <a class="grid-product__image-link{% unless featured_image.src == blank %} grid-product__image-link--loading{% endunless %}" href="{{ product.url | within: collection }}" data-image-link>
         {% if featured_image.src == blank %}
           <img class="grid-product__image" src="{{ featured_image.src | img_url: '1024x' }}" alt="{{ featured_image.alt | escape }}">
