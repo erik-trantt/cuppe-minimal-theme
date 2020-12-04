@@ -98,7 +98,18 @@
           {% endif %}
           </h3>
 
+          <div class="product-rating-stampedio">
+            <span class="stamped-product-reviews-badge stamped-main-badge text-center"
+                  data-id="{{ product.id }}"
+                  data-product-sku="{{ product.handle }}"
+                  data-product-type="{{product.type}}"
+                  data-product-title="{{product.title}}"
+                  >
+              {{ product.metafields.stamped.badge }}{{ product.metafields.stamped.count }}
+            </span>
+          </div>
           <button class="btn hero__cta" style="width: 10rem; margin: 1em 0;">View More</button>
+
 
         {%- if product.price_varies == false and variant.unit_price_measurement -%}
           {%- capture unit_price_separator -%}
