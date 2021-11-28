@@ -6,224 +6,419 @@
     "color_borders": "#1f2021",
     "color_button_text": "#ffffff",
     "color_primary": "#1f2021",
-    "color_secondary": "#a56600",
+    "color_secondary": "#b99257",
     "color_product_background": "#f6f6f6",
-    "color_sale_tag": "#a56600",
+    "color_sale_tag": "#b99257",
     "color_input": "#f6f6f6",
     "color_newsletter": "#f6f6f6",
     "color_drawer_background": "#1f2021",
     "color_drawer_text": "#ffffff",
     "color_drawer_border": "#1f2021",
-    "color_drawer_button": "#a56600",
+    "color_drawer_button": "#cec2b0",
     "color_drawer_button_text": "#ffffff",
-    "type_header_family": "old_standard_tt_n4",
-    "type_header_base_size": "30px",
-    "type_header_border_thickness": "1px",
-    "type_accent_family": "montserrat_n6",
+    "type_header_family": "questrial_n4",
+    "type_header_base_size": "32px",
+    "type_header_border_thickness": "2px",
+    "type_accent_family": "inconsolata_n4",
     "type_accent_transform": true,
     "type_accent_spacing": true,
     "type_accent_subheadings": true,
-    "type_base_family": "arapey_n4",
-    "type_base_size": "16px",
-    "type_base_italize_titles": true,
+    "type_base_family": "questrial_n4",
+    "type_base_size": "15px",
+    "type_base_italize_titles": false,
     "cart_type": "page",
     "cart_notes_enable": false,
-    "social_facebook_link": "",
-    "social_twitter_link": "",
-    "social_pinterest_link": "",
-    "social_instagram_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/cuppe.co",
+    "social_twitter_link": "https:\/\/twitter.com\/cuppe_co",
+    "social_pinterest_link": "https:\/\/www.pinterest.com.au\/hellocuppe\/cupp%C3%A9",
+    "social_instagram_link": "https:\/\/instagram.com\/cuppe.co",
     "social_snapchat_link": "",
     "social_google_plus_link": "",
     "social_tumblr_link": "",
-    "social_youtube_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCUqJ71MhZ2U0HvMQbLxm2KQ?view_as=subscriber",
     "social_vimeo_link": "",
     "social_fancy_link": "",
-    "share_facebook": true,
-    "share_twitter": true,
-    "share_pinterest": true,
-    "favicon": "",
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_pinterest": false,
+    "favicon": "shopify:\/\/shop_images\/C._logo_Flavicon_02-01.jpg",
     "checkout_header_image": "",
-    "checkout_logo_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Cuppe_Reusable_Bubble_Tea_Cup.jpg",
     "checkout_logo_position": "left",
-    "checkout_logo_size": "medium",
+    "checkout_logo_size": "small",
     "checkout_body_background_image": "",
-    "checkout_body_background_color": "#fff",
+    "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
     "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-    "checkout_accent_color": "#a26b25",
+    "checkout_accent_color": "#e7d5ca",
     "checkout_button_color": "#000000",
-    "checkout_error_color": "#e32c2b",
+    "checkout_error_color": "#a56600",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
-          "logo": "",
-          "logo_max_width": 180,
+          "logo": "shopify:\/\/shop_images\/Cuppe_Logo_PNG_01_773c2c88-aaa0-4a46-a494-8fabfda065c4.png",
+          "logo_max_width": 160,
           "header_color": "#000000",
           "transparent_header_enable": true,
-          "transparent_logo": "",
           "transparent_header_color": "#ffffff",
-          "search": "modal",
+          "search": "none",
           "main_menu_link_list": "custom-main-menu",
           "drawer_bottom_link_list": "footer",
           "drawer_search_enable": false,
           "show_announcement": true,
-          "home_page_only": true,
-          "text": "Announce something here",
-          "link": "",
-          "color_bg": "#1c1d1d",
+          "home_page_only": false,
+          "text": "PRE-ORDER SALE UNTIL 30 NOV 2021 - 15% OFF SITEWIDE  | FREE AU SHIPPING FOR ORDERS OVER $90.",
+          "link": "https:\/\/vsovrf3ofypx5qiu-4767088675.shopifypreview.com\/collections\/all-products-collection",
+          "color_bg": "#000000",
           "color_text": "#ffffff"
-        }
-      },
-      "slideshow": {
-        "type": "slideshow",
-        "blocks": {
-          "slideshow-0": {
-            "type": "slide",
-            "settings": {
-              "image": "",
-              "image_position": "center center",
-              "image_overlay": true,
-              "image_overlay_opacity": 25,
-              "text_alignment": "center",
-              "slide_heading": "Hero Banner",
-              "slide_subheading": "An introductory",
-              "button_label": "Shop now",
-              "button_link": "",
-              "slide_text_color": "#ffffff",
-              "slide_button_label_color": "#ffffff",
-              "slide_button_background_color": "#1f2021"
-            }
-          },
-          "slideshow-1": {
-            "type": "slide",
-            "settings": {
-              "image": "",
-              "image_position": "center center",
-              "image_overlay": true,
-              "image_overlay_opacity": 25,
-              "text_alignment": "center",
-              "slide_heading": "Hero Banner",
-              "slide_subheading": "An introductory",
-              "button_label": "Shop now",
-              "button_link": "",
-              "slide_text_color": "#ffffff",
-              "slide_button_label_color": "#ffffff",
-              "slide_button_background_color": "#1f2021"
-            }
-          }
-        },
-        "block_order": [
-          "slideshow-0",
-          "slideshow-1"
-        ],
-        "settings": {
-          "home_hero_height": "full",
-          "hero_home_auto": false,
-          "home_hero_auto_speed": 5
-        }
-      },
-      "featured-content": {
-        "type": "featured-content",
-        "settings": {
-          "home_page_full_width": false,
-          "section_title": "",
-          "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
-          "text_size": "large"
-        }
-      },
-      "featured-collections": {
-        "type": "featured-collections",
-        "blocks": {
-          "featured-collections-0": {
-            "type": "collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "featured-collections-1": {
-            "type": "collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "featured-collections-2": {
-            "type": "collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "featured-collections-3": {
-            "type": "collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "featured-collections-4": {
-            "type": "collection",
-            "settings": {
-              "collection": ""
-            }
-          }
-        },
-        "block_order": [
-          "featured-collections-0",
-          "featured-collections-1",
-          "featured-collections-2",
-          "featured-collections-3",
-          "featured-collections-4"
-        ],
-        "settings": {
-          "title": "Collection list"
-        }
-      },
-      "featured-products": {
-        "type": "featured-products",
-        "settings": {
-          "title": "Featured collection",
-          "home_featured_products": "",
-          "collection_products_grid": "grid"
-        }
-      },
-      "featured-product": {
-        "type": "featured-product",
-        "settings": {
-          "featured_product": "",
-          "show_variant_labels": true,
-          "show_vendor": false,
-          "enable_payment_button": true,
-          "show_share_buttons": true,
-          "enable_video_looping": false
-        }
-      },
-      "newsletter": {
-        "type": "newsletter",
-        "settings": {
-          "heading": "Subscribe to our newsletter",
-          "subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>"
         }
       },
       "footer": {
         "type": "footer",
         "settings": {
           "show_payment_icons": true,
-          "show_locale_selector": true,
-          "show_currency_selector": true,
-          "footer_link_list": "footer"
+          "show_locale_selector": false,
+          "show_currency_selector": false,
+          "footer_link_list": "cupper-new-menu"
+        }
+      },
+      "1598761056984": {
+        "type": "slideshow",
+        "blocks": {
+          "e49a7b77-231d-4bdb-895c-8dbd769203c1": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/IMG_6087.jpg",
+              "image_position": "left bottom",
+              "image_overlay": false,
+              "image_overlay_opacity": 100,
+              "text_alignment": "right",
+              "slide_heading": "Pre-order sale",
+              "slide_subheading": "15% sitewide. Estimated dispatch date 1st DEcember",
+              "button_label": "SHOP NOW",
+              "button_link": "shopify:\/\/collections\/all",
+              "slide_text_color": "#1f2021",
+              "slide_button_label_color": "#ffffff",
+              "slide_button_background_color": "#1f2021"
+            }
+          },
+          "cae7e8c5-4e2a-4a17-a136-07ab4784c9eb": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/IMG_6269.jpg",
+              "image_position": "center top",
+              "image_overlay": true,
+              "image_overlay_opacity": 3,
+              "text_alignment": "left",
+              "slide_heading": "",
+              "slide_subheading": "",
+              "button_label": "Shop now",
+              "button_link": "shopify:\/\/collections\/all-products-collection",
+              "slide_text_color": "#ffffff",
+              "slide_button_label_color": "#cec2b0",
+              "slide_button_background_color": "#1f2021"
+            }
+          },
+          "7aec9fbe-f8ae-4d07-afad-9e9d141d4545": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cuppe-9122.jpg",
+              "image_position": "center center",
+              "image_overlay": true,
+              "image_overlay_opacity": 0,
+              "text_alignment": "right",
+              "slide_heading": "",
+              "slide_subheading": "",
+              "button_label": "Shop now",
+              "button_link": "shopify:\/\/collections\/all-products-collection",
+              "slide_text_color": "#ffffff",
+              "slide_button_label_color": "#ffffff",
+              "slide_button_background_color": "#1f2021"
+            }
+          },
+          "cba3c5ee-0e3d-4bda-aac3-ad39f6a34ffb": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cuppe-9130.jpg",
+              "image_position": "center center",
+              "image_overlay": true,
+              "image_overlay_opacity": 0,
+              "text_alignment": "left",
+              "slide_heading": "",
+              "slide_subheading": "",
+              "button_label": "Shop now",
+              "button_link": "shopify:\/\/collections\/all-products-collection",
+              "slide_text_color": "#ffffff",
+              "slide_button_label_color": "#ffffff",
+              "slide_button_background_color": "#1f2021"
+            }
+          },
+          "1598761056984-0": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cuppe-9030.jpg",
+              "image_position": "center center",
+              "image_overlay": true,
+              "image_overlay_opacity": 0,
+              "text_alignment": "right",
+              "slide_heading": "",
+              "slide_subheading": "",
+              "button_label": "Shop now",
+              "button_link": "shopify:\/\/collections\/all-products-collection",
+              "slide_text_color": "#ffffff",
+              "slide_button_label_color": "#ffffff",
+              "slide_button_background_color": "#1f2021"
+            }
+          }
+        },
+        "block_order": [
+          "e49a7b77-231d-4bdb-895c-8dbd769203c1",
+          "cae7e8c5-4e2a-4a17-a136-07ab4784c9eb",
+          "7aec9fbe-f8ae-4d07-afad-9e9d141d4545",
+          "cba3c5ee-0e3d-4bda-aac3-ad39f6a34ffb",
+          "1598761056984-0"
+        ],
+        "settings": {
+          "home_hero_height": "full",
+          "hero_home_auto": true,
+          "home_hero_auto_speed": 5
+        }
+      },
+      "1599476129885": {
+        "type": "featured-products",
+        "settings": {
+          "title": "Our Best Sellers",
+          "home_featured_products": "our-best-sellers",
+          "collection_products_grid": "grid"
+        }
+      },
+      "1599991567926": {
+        "type": "advanced-content",
+        "blocks": {
+          "1599991567926-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"\" style=\"\n    margin: 3px auto;\nmargin: 30px;\n    text-align: center;\n\">\n  <a href=\"\/collections\/all-products-collection\" style=\"width: 95%; background:#FFF; border: 1px solid #000000; color: #000; padding: 1rem;\n\" target=\"_blank\" class=\"btn btn--secondary-accent\">More Products<\/a>\n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1599991567926-0"
+        ],
+        "settings": {
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "product_vendor_enable": false,
+          "social_sharing_products": true,
+          "quantity_enabled": false,
+          "product_selector": "radio",
+          "enable_payment_button": false,
+          "add_to_cart_button_size": "small",
+          "media_layout": "thumbnails",
+          "enable_image_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "show_collection_image": false,
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "collection_products_grid": "grid",
+          "product_vendor_enable": false
+        }
+      },
+      "1600610957392": {
+        "type": "advanced-grid-content",
+        "blocks": {
+          "1600649329619": {
+            "type": "block-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Features_Page-03_a85de26c-a40d-42db-b499-9d62bbaacd43.jpg",
+              "text": "<p><strong>DUAl-USE LID<\/strong><\/p><p>Sip with or without a straw<\/p>",
+              "alignment": true
+            }
+          },
+          "1600611042308": {
+            "type": "block-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Features_Page-01.jpg",
+              "text": "<p><strong>LEAK-PROOF<\/strong><\/p><p>Perfect for on-the-go<\/p>",
+              "alignment": false
+            }
+          },
+          "1600653832440": {
+            "type": "block-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Features_Page-02.jpg",
+              "text": "<p><strong>THERMAL SHOCK RESISTANT<\/strong><\/p><p>Store hot or cold beverage<\/p>",
+              "alignment": true
+            }
+          },
+          "1600653800513": {
+            "type": "block-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Features_Page-04_38995b9d-50b5-4442-b3be-e42f5f515cd6.jpg",
+              "text": "<p><strong>DISHWASHER SAFE<\/strong><\/p><p>Makes cleaning easier<\/p>",
+              "alignment": false
+            }
+          }
+        },
+        "block_order": [
+          "1600649329619",
+          "1600611042308",
+          "1600653832440",
+          "1600653800513"
+        ],
+        "settings": {
+          "title": "Our Best Features",
+          "button_label": "Shop all",
+          "button_link": "shopify:\/\/collections\/all-products-collection"
+        }
+      },
+      "1600751200252": {
+        "type": "instagram-feed",
+        "settings": {
+          "heading": "Share your #bbtcuppé"
+        }
+      },
+      "1600838211715": {
+        "type": "decorative-patterns",
+        "settings": {
+          "pattern_color": "#e7d5ca",
+          "pattern_choice": "waves-bottom",
+          "display_on": "mobile"
+        }
+      },
+      "product-reviews": {
+        "type": "product-reviews",
+        "settings": {
+        }
+      },
+      "16018953336451e6f0": {
+        "type": "featured-video",
+        "settings": {
+          "heading": "One lid, Two use, Three Sizes, Four Colours!",
+          "video_url": "https:\/\/www.youtube.com\/watch?v=p_fvWhthKh8"
+        }
+      },
+      "160704096837914172": {
+        "type": "custom-featured-content",
+        "settings": {
+          "home_page_full_width": true,
+          "section_title": "The only tumbler  you will ever need.  Make the switch to Cuppé",
+          "text": "<p><a href=\"\/pages\/reusable-bubble-tea-tumbler-about-us\" title=\"Our Story\">Learn More<\/a><\/p><p><\/p><p><\/p>",
+          "heading_text_size": "small",
+          "text_size": "medium",
+          "background_color": "#ffffff"
+        }
+      },
+      "1622348505c80bbe39": {
+        "type": "advanced-grid-content",
+        "blocks": {
+          "136734a7-ac43-4e97-b40f-fbf8a22b3bdf": {
+            "type": "block-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/chatto_horizontal_logo_FA-01.png",
+              "text": "",
+              "alignment": false
+            }
+          },
+          "f246575d-f11e-414f-8634-0eea33638a84": {
+            "type": "block-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Website_Collaborator-02-01.png",
+              "text": "",
+              "alignment": true
+            }
+          },
+          "0b217717-7e57-4e3a-a8a1-f66cf0d43854": {
+            "type": "block-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Website_Collaborator-_Super_Emoji-01.png",
+              "text": "",
+              "alignment": true
+            }
+          }
+        },
+        "block_order": [
+          "136734a7-ac43-4e97-b40f-fbf8a22b3bdf",
+          "f246575d-f11e-414f-8634-0eea33638a84",
+          "0b217717-7e57-4e3a-a8a1-f66cf0d43854"
+        ],
+        "settings": {
+          "title": "Collaboration",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "1600761584396": {
+        "type": "featured-story",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/korea_egg-_square_format.jpg",
+          "layout": "left",
+          "title": "JOIN THE REUSE REVOLUTION",
+          "text": "<p>Our mission is to end the use of single-use plastic cups, especially in the bubble tea, juice and smoothie industries.<\/p><p>By supporting our reusable bubble tea tumbler, we can prevent millions of single-use plastics being washed into our beautiful coast and ocean. Every cup counts and we would love to have you on board with us on this mission! <\/p><p>One cup at a time, you and I are already making an impact.<\/p>",
+          "button_label": "SHOP NOW",
+          "button_link": "shopify:\/\/collections\/all-products-collection"
+        }
+      },
+      "1622355740d66c1a3d": {
+        "type": "decorative-patterns",
+        "settings": {
+          "pattern_color": "#ffffff",
+          "pattern_choice": "waves-top",
+          "display_on": "mobile"
+        }
+      },
+      "1637882988b00f2e35": {
+        "type": "okendo-reviews-carousel",
+        "settings": {
+          "heading": "What Our Customers Say",
+          "link": "\/pages\/reviews"
         }
       }
     },
     "content_for_index": [
-      "slideshow",
-      "featured-content",
-      "featured-collections",
-      "featured-products",
-      "featured-product",
-      "newsletter"
-    ]
+      "1598761056984",
+      "160704096837914172",
+      "1600838211715",
+      "1599476129885",
+      "1599991567926",
+      "1600610957392",
+      "1637882988b00f2e35",
+      "1622348505c80bbe39",
+      "1600751200252",
+      "1622355740d66c1a3d",
+      "1600761584396",
+      "16018953336451e6f0"
+    ],
+    "blocks": {
+      "5a427771da5895a930": {
+        "type": "shopify:\/\/apps\/okendo-product-reviews-ugc\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
+        }
+      }
+    }
   },
   "presets": {
     "Classic": {
@@ -242,18 +437,21 @@
           "blocks": {
             "slideshow-0": {
               "type": "slide",
-              "settings": {}
+              "settings": {
+              }
             },
             "slideshow-1": {
               "type": "slide",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
             "slideshow-0",
             "slideshow-1"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "featured-content": {
           "type": "featured-content",
@@ -267,23 +465,28 @@
           "blocks": {
             "featured-collections-0": {
               "type": "collection",
-              "settings": {}
+              "settings": {
+              }
             },
             "featured-collections-1": {
               "type": "collection",
-              "settings": {}
+              "settings": {
+              }
             },
             "featured-collections-2": {
               "type": "collection",
-              "settings": {}
+              "settings": {
+              }
             },
             "featured-collections-3": {
               "type": "collection",
-              "settings": {}
+              "settings": {
+              }
             },
             "featured-collections-4": {
               "type": "collection",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
@@ -293,7 +496,8 @@
             "featured-collections-3",
             "featured-collections-4"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "featured-products": {
           "type": "featured-products",
@@ -303,11 +507,13 @@
         },
         "featured-product": {
           "type": "featured-product",
-          "settings": {}
+          "settings": {
+          }
         },
         "newsletter": {
           "type": "newsletter",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "content_for_index": [
@@ -414,7 +620,8 @@
         },
         "newsletter": {
           "type": "newsletter",
-          "settings": {}
+          "settings": {
+          }
         },
         "header": {
           "type": "header",
@@ -477,7 +684,8 @@
           "block_order": [
             "1496078102297-0"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "1496177901425": {
           "type": "advanced-content",
@@ -494,7 +702,8 @@
           "block_order": [
             "1496177901425-0"
           ],
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "content_for_index": [

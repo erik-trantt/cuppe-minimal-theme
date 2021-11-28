@@ -73,16 +73,20 @@
       {% elsif on_sale %}
         <div class="grid-product__on-sale">
           {% capture saved_amount %}{{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}{% endcapture %}
-          <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount }}</p>
+          <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount  }}</p>
         </div>
       {% endif %}
     </div>
 
     <a href="{{ product.url | within: collection }}" class="grid-product__meta">
       <span class="grid-product__title">{{ product.title }}</span>
+      {% render 'okendo-reviews-product-rating-summary', product: product %}
       <span class="grid-product__price-wrap">
         <h3 class="grid-product__price" style="margin-top: 1em;">
           {% if on_sale %}
+          {% comment %} Change by Matt M. @ Shopify Theme Support | November 25 2021{% endcomment %}
+          	<span class="on-sale__regular-price"><s>{{ product.compare_at_price | money_without_trailing_zeros }}</s></span>
+          {% comment %}End of change by Matt M. @ Shopify Theme Support | November 25 2021{% endcomment %}
             <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
           {% else %}
              <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
@@ -97,17 +101,6 @@
             {{ product.price | money_without_trailing_zeros }}
           {% endif %}
           </h3>
-
-          <div class="product-rating-stampedio">
-            <span class="stamped-product-reviews-badge stamped-main-badge text-center"
-                  data-id="{{ product.id }}"
-                  data-product-sku="{{ product.handle }}"
-                  data-product-type="{{product.type}}"
-                  data-product-title="{{product.title}}"
-                  >
-              {{ product.metafields.stamped.badge }}{{ product.metafields.stamped.count }}
-            </span>
-          </div>
           <button class="btn hero__cta" style="width: 10rem; margin: 1em 0;">View More</button>
 
 

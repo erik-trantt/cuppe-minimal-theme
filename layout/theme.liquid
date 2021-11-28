@@ -14,11 +14,6 @@
   <title>
   {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
   </title>
-
-  {% if page_description %}
-  <meta name="description" content="{{ page_description | escape }}">
-  {% endif %}
-
   <!-- Helpers ================================================== -->
   {% include 'social-meta-tags' %}
   <link rel="canonical" href="{{ canonical_url }}">
@@ -72,7 +67,8 @@
   {% endif %}
 
   <!-- Stamp.io widget ========================================================== -->
-  <script async type="text/javascript" data-api-key="" id="stamped-script-widget" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
+  {% comment %} Stamped content removed from here {% endcomment %}
+  <meta name="google-site-verification" content="V1Yq_K5jn_Z4aSG3hk_B4z7hXifw_-rLchGBv-Skc_Q" />
 </head>
 
 {% comment %}
@@ -156,5 +152,8 @@
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
     <li id="a11y-slideshow-info">{{ 'home_page.slideshow.navigation_instructions' | t }}</li>
   </ul>
-</body>
+  <!-- Stamped - Begin Script-->
+{% comment %} Stamped content removed from here {% endcomment %}
+<!-- Stamped - End Script -->
+{% include 'productpageswatchsnippet' %}{% include 'swatchyappvariables' %}</body>
 </html>

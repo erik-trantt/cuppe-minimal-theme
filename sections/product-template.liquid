@@ -129,9 +129,7 @@
           {% endif %}
 
           <h1 class="product-single__title" itemprop="name">{{ product.title }}</h1>
-          <div class="product-rating-stampedio">
-            <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" data-product-type="{{product.type}}" data-product-title="{{product.title}}" style="display: inline-block;">{{ product.metafields.stamped.badge }}{{ product.metafields.stamped.count }}</span>
-          </div>
+            {% render 'okendo-reviews-product-rating-summary', product: product %}
 
           <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             {% comment %}
