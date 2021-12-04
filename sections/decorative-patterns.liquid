@@ -9,9 +9,12 @@
   </defs>
 </svg>
 
-{%- assign color = section.settings.pattern_color -%}
-{%- assign pattern = section.settings.pattern_choice -%}
-{%- assign display_on = section.settings.display_on -%}
+{% liquid
+  assign color = section.settings.pattern_color
+  assign pattern = section.settings.pattern_choice
+  assign display_on = section.settings.display_on
+%}
+
 {%- case section.settings.display_on -%}
   {%- when 'mobile' -%}
     {%- assign display_on = 'show--pattern-mobile' -%}

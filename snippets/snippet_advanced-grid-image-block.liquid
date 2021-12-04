@@ -1,19 +1,20 @@
-<!-- /snippets/snippet_advanced-grid-image-block.liquid -->
 {% comment %}
-
+  
+  <!-- /snippets/snippet_advanced-grid-image-block.liquid -->
   This snippet is used for "/sections/advanced-grid-content.liquid".98
 
 {%- endcomment -%}
 
 {%- comment -%} Featured Image {%- endcomment -%}
-{%- assign image = block.settings.image -%}
-{%- assign text = block.settings.text | strip_newlines -%}
-{%- assign left_or_right = "left" -%}
-{%- assign image_order = 1 -%}
-{%- if block.settings.alignment == false -%}
-  {%- assign left_or_right = "right" -%}
-  {%- assign image_order = 3 -%}
-{%- endif -%}
+{% liquid
+  assign image = block.settings.image
+  assign text = block.settings.text | strip_newlines
+  assign image_order = 1
+
+  if block.settings.alignment == false
+    assign image_order = 3
+  endif
+%}
 
 {%- comment -%} Capture block - Image {%- endcomment -%}
 {% capture media_layout %}
@@ -21,14 +22,17 @@
     <noscript>
       {{ image | img_url: '300x300' | img_tag: image.alt, 'feature-row__image-no-js' }}
     </noscript>
-    {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-    <img class="lazyload cuppe-featured-image"
+    <img class="cuppe-featured-image"
+      loading="lazy"
+      width="auto"
+      height="auto"
       src="{{ image | img_url: '300x300' }}"
-      data-src="{{ img_url }}"
-      data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+      data-src="{{ image | img_url: '300x300' }}"
+      data-widths="[360, 540, 720, 900, 1080]"
       data-aspectratio="{{ image.aspect_ratio }}"
       data-sizes="auto"
-      alt="{{ image.alt | escape }}">
+      alt="{{ image.alt | escape }}"
+    >
   {% else %}
     {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
   {% endif %}

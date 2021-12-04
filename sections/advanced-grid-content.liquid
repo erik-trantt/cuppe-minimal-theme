@@ -1,65 +1,10 @@
-{% stylesheet %}
-  /* MOBILE FIRST */
-  .cuppe__grid {
-    list-style: none;
-    margin: 0;
-    text-align: center;
-  }
-  .cuppe__grid-item {
-    height: 100%;
-    display: flex;
-    flex: 1 0 0%;
-    flex-flow: row wrap;
-  }
-  .cuppe__grid-item > div {
-    width: 50%;
-  }
-  .cuppe__grid li {
-    width: 100%;
-    align-self: start;
-  }
-  @media screen and (min-width: 590px) {
-    /* DESKTOP VIEW */
-    .cuppe__grid {
-      display: flex;
-    }
-    .cuppe__grid-item {
-      flex-flow: column wrap;
-    }
-    .cuppe__grid-item > div {
-      width: 100% !important;
-      max-width: 200px;
-    }
-    .image-orders {
-      order: 0 !important;
-    }
-  }
-  .cuppe-img {
-    flex: 1 1 auto;
-    min-height: 1px;
-    flex-flow: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-    
-  }
-  .center {
-    text-align: center;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-  }
-  .cuppe-featured-image {
-    width: 100%;
-    border-radius: 50%;
-  }
-{% endstylesheet %}
-
 <div class="page-width-100" style="background-color: #F1ECE4; padding-bottom: 2rem;">
   <div class="wrapper">
     <div style="display: flex; justify-content: space-around;">
-      <img class="lazyload"
+      <img
+        width="auto"
+        height="auto"
+        loading="lazy"
         src="{{ 'icons_waves.svg' | asset_url }}"
         alt="convenience highlights"
         style="margin-top: -2rem;"
@@ -200,3 +145,62 @@
     ]
   }
 {% endschema %}
+
+{% stylesheet %}
+  /* MOBILE FIRST */
+  .cuppe__grid {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+  }
+  .cuppe__grid-item {
+    height: 100%;
+    display: flex;
+    flex: 1 0 0%;
+    flex-flow: row wrap;
+  }
+  .cuppe__grid-item > div {
+    width: 50%;
+  }
+  .cuppe__grid li {
+    width: 100%;
+    align-self: start;
+  }
+  @media screen and (min-width: 590px) {
+    /* DESKTOP VIEW */
+    .cuppe__grid {
+      display: flex;
+    }
+    .cuppe__grid-item {
+      flex-flow: column wrap;
+    }
+    .cuppe__grid-item > div {
+      width: 100% !important;
+      max-width: 180px;
+      margin: 0 auto;
+    }
+    .image-orders {
+      order: 0 !important;
+    }
+  }
+  .cuppe-img {
+    flex: 1 1 auto;
+    min-height: 1px;
+    flex-flow: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .center {
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+  .cuppe-featured-image {
+    max-width: 180px;
+    width: 100%;
+    border-radius: 50%;
+  }
+{% endstylesheet %}
