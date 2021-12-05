@@ -32,6 +32,8 @@
       data-aspectratio="{{ image.aspect_ratio }}"
       data-sizes="auto"
       alt="{{ image.alt | escape }}"
+      title="{{ image.alt | escape }}"
+      style="aspect-ratio: {{ image.aspect_ratio }}"
     >
   {% else %}
     {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -39,11 +41,12 @@
 {% endcapture %}
 
 {%- comment -%} EACH ROW {%- endcomment -%}
-<div class="cuppe__grid-item">
+<div class="cuppe__list-item">
   <div class="cuppe-img image-orders" style="order: {{ image_order }};">
     {{ media_layout }}
   </div>
   
+  {% if text != blank %}
   <div class="center" style="padding: 5px 20px; order: 2;">
     {% for text_line in text %}
       {%- unless text_line == '' -%}
@@ -51,4 +54,5 @@
       {%- endunless -%}
     {% endfor %}
   </div>
+  {% endif %}
 </div>

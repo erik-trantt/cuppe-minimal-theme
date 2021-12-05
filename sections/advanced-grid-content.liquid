@@ -18,18 +18,93 @@
       </div>
 
       <!-- Blocks of features -->
-      <div class="wrapper">
-        <ul class="cuppe__grid">
+      <div class="cuppe-wrapper">
+        {%- if section.settings.layout == "row" -%}
+        <ul class="cuppe__list">
           {% for block in section.blocks %}
             {%- case block.type -%}
               {%- when "block-image" -%}
-                <li class="" style="margin-bottom: 1rem;" {{ block.shopify_attributes }} >
+                <li style="margin-bottom: 1rem;">
                   {% include 'snippet_advanced-grid-image-block' %}
+                </li>
+              {%- when "block-video" -%}
+                <li>
+                  {%- if block.settings.product_description_video -%}
+                    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/{{ block.settings.product_description_video.id }}?autoplay=1&loop=1&mute=1" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen volume="0"></iframe>
+                  {%- else -%}
+                    <p>No video link entered...</p>
+                  {%- endif -%}
                 </li>
               {%- else -%}
             {%- endcase -%}
           {% endfor %}
         </ul>
+
+        {%- elsif section.settings.layout == "grid-4x" -%}
+        <div class="cuppe__grid">
+          {% for block in section.blocks %}
+            {% liquid
+              assign text = block.settings.text | strip_newlines
+            %}
+            {%- case block.type -%}
+              {%- when "block-image" -%}
+                <li class="cuppe__grid-item cuppe__block-image">
+                  <div class="cuppe-img image-orders">
+                    {% if block.settings.image != blank %}
+                      <noscript>
+                        {{ block.settings.image | img_url: '300x300' | img_tag: image.alt, 'feature-row__image-no-js' }}
+                      </noscript>
+                      <img class="cuppe-featured-image"
+                        loading="lazy"
+                        width="auto"
+                        height="auto"
+                        src="{{ block.settings.image | img_url: '300x300' }}"
+                        data-src="{{ block.settings.image | img_url: '300x300' }}"
+                        data-widths="[360, 540, 720, 900, 1080]"
+                        data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ block.settings.image.alt | escape }}"
+                      >
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                  </div>
+                  
+                  {% if text != blank %}
+                  <div class="center" style="padding: 5px 20px; order: 2;">
+                    {% for text_line in text %}
+                      {%- unless text_line == '' -%}
+                        {{ text_line }}
+                      {%- endunless -%}
+                    {% endfor %}
+                  </div> 
+                  {% endif %}               
+                </li>
+
+              {%- when "block-video" -%}
+                <li class="cuppe__grid-item cuppe__block-video">
+                  {%- if block.settings.product_description_video -%}
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ block.settings.product_description_video.id }}?autoplay=1&loop=1&mute=1" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen volume="0"></iframe>
+                  {%- else -%}
+                    <p>No video link entered...</p>
+                  {%- endif -%}
+
+                  {%- if text != blank -%}
+                  <div class="center" style="padding: 5px 20px; order: 2;">
+                    {% for text_line in text %}
+                      {%- unless text_line == '' -%}
+                        {{ text_line }}
+                      {%- endunless -%}
+                    {% endfor %}
+                  </div> 
+                  {%- endif -%}
+                </li>
+              {%- else -%}
+            {%- endcase -%}
+          {% endfor %}
+        </div>
+        {%- else -%}
+      {%- endif -%}
       </div>
 
       {%- comment -%}
@@ -72,7 +147,7 @@
       },
       {
         "type": "paragraph",
-        "content": "Each featured row can contain 1 block of text and 1 image, and the positions can be switched."
+        "content": "Each featured row can contain 1 text block and 1 media block, and the positions can be switched between left or right."
       },
       {
         "id": "title",
@@ -88,6 +163,22 @@
         "type": "url",
         "id": "button_link",
         "label": "Button Link"
+      },
+      {
+        "type": "radio",
+        "id": "layout",
+        "label": "Layout",
+        "options": [
+          {
+            "value": "row",
+            "label": "Row"
+          },
+          {
+            "value": "grid-4x",
+            "label": "Grid 4x with video"
+          }
+        ],
+        "default": "row"
       }
     ],
     "blocks": [
@@ -109,6 +200,32 @@
             "type": "checkbox",
             "id": "alignment",
             "label": "Image first?",
+            "default": true
+          }
+        ]
+      },
+      {
+        "name": "Video block",
+        "type": "block-video",
+        "settings": [
+          {
+            "type": "video_url",
+            "id": "product_description_video",
+            "label": "Product description video",
+            "accept": [
+              "youtube",
+              "vimeo"
+            ]
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Description text"
+          },
+          {
+            "type": "checkbox",
+            "id": "alignment",
+            "label": "Video first?",
             "default": true
           }
         ]
@@ -140,48 +257,97 @@
           "vi": "Bố cục nâng cao",
           "zh-CN": "高级布局",
           "zh-TW": "進階版面配置"
-        }
+        },
+        "settings": {
+          "title": "4x Row"
+        },
+        "blocks": [
+          {
+            "type": "block-image"
+          },
+          {
+            "type": "block-image"
+          },
+          {
+            "type": "block-image"
+          },
+          {
+            "type": "block-image"
+          }
+        ]
+      },
+      {
+        "name": "Custom grid 4x with video",
+        "category": {
+          "cs": "Pokročilé rozvržení",
+          "da": "Avanceret layout",
+          "de": "Komplizierteres Layout",
+          "en": "Advanced layout",
+          "es": "Diseño avanzado",
+          "fi": "Monimutkaisempi layout",
+          "fr": "Mise en page avancée",
+          "hi": "उन्नत लेआउट",
+          "it": "Layout avanzato",
+          "ja": "高度なレイアウト",
+          "ko": "고급 레이아웃",
+          "nb": "Avansert oppsett",
+          "nl": "Geavanceerde opmaak",
+          "pl": "Zaawansowany układ",
+          "pt-BR": "Layout avançado",
+          "pt-PT": "Esquema avançado",
+          "sv": "Avancerad layout",
+          "th": "เลย์เอาท์ขั้นสูง",
+          "tr": "Gelişmiş düzen",
+          "vi": "Bố cục nâng cao",
+          "zh-CN": "高级布局",
+          "zh-TW": "進階版面配置"
+        },
+        "settings": {
+          "title": "4x Row",
+          "layout": "grid-4x"
+        },
+        "blocks": [
+          {
+            "type": "block-image"
+          },
+          {
+            "type": "block-image"
+          },
+          {
+            "type": "block-image"
+          },
+          {
+            "type": "block-image"
+          },
+          {
+            "type": "block-video"
+          }
+        ]
       }
-    ]
+    ],
+    "templates": ["article", "index", "page", "product"]
   }
 {% endschema %}
 
 {% stylesheet %}
   /* MOBILE FIRST */
-  .cuppe__grid {
+  .cuppe__list, .cuppe__grid {
     list-style: none;
     margin: 0;
     text-align: center;
   }
-  .cuppe__grid-item {
+  .cuppe__list-item {
     height: 100%;
     display: flex;
     flex: 1 0 0%;
     flex-flow: row wrap;
   }
-  .cuppe__grid-item > div {
+  .cuppe__list-item > div {
     width: 50%;
   }
-  .cuppe__grid li {
+  .cuppe__list li {
     width: 100%;
     align-self: start;
-  }
-  @media screen and (min-width: 590px) {
-    /* DESKTOP VIEW */
-    .cuppe__grid {
-      display: flex;
-    }
-    .cuppe__grid-item {
-      flex-flow: column wrap;
-    }
-    .cuppe__grid-item > div {
-      width: 100% !important;
-      max-width: 180px;
-      margin: 0 auto;
-    }
-    .image-orders {
-      order: 0 !important;
-    }
   }
   .cuppe-img {
     flex: 1 1 auto;
@@ -199,8 +365,53 @@
     justify-content: center;
   }
   .cuppe-featured-image {
-    max-width: 180px;
+    max-width: 160px;
     width: 100%;
     border-radius: 50%;
   }
+  .cuppe__grid {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: 
+      "image1 image2" 
+      "image3 image3"
+      "video video";
+  }
+  .cuppe__grid .cuppe__block-video {
+    grid-area: video;
+    aspect-ratio: 1;
+  }
+
+  @media screen and (min-width: 590px) {
+    /* DESKTOP VIEW */
+    .cuppe__list {
+      display: flex;
+    }
+    .cuppe__list-item {
+      flex-flow: column wrap;
+    }
+    .cuppe__list-item > div {
+      width: 100% !important;
+      max-width: 180px;
+      margin: 0 auto;
+    }
+    .image-orders {
+      order: 0 !important;
+    }
+    .cuppe__grid {
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 25% 25% 50%;
+      grid-template-areas: 
+        ". . video" 
+        ". . video";
+    }
+    .cuppe__grid .cuppe__block-video {
+      aspect-ratio: auto;
+    }
+    .cuppe-featured-image {
+      max-width: 180px;
+    }
+  }
+ 
 {% endstylesheet %}
