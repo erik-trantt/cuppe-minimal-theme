@@ -25,7 +25,7 @@
             {%- case block.type -%}
               {%- when "block-image" -%}
                 <li style="margin-bottom: 1rem;">
-                  {% include 'snippet_advanced-grid-image-block' %}
+                  {% render 'snippet_advanced-grid-image-block', block: block %}
                 </li>
               {%- when "block-video" -%}
                 <li>
