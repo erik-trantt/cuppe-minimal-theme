@@ -1,20 +1,21 @@
 {%- liquid
-  assign HEADING = '<p>====heading'
-  assign HEADING_OPEN = '<p>====heading:open'
+  assign HEADING = '<p>=====heading'
+  assign HEADING_OPEN = '<p>=====heading:open'
 
   assign line_number = 0
   assign total_lines = accordion_content.size
   assign last_line_number = total_lines | minus: 1
+
+  assign content_lines = accordion_content | newline_to_br | split: '<br />'
 -%}
 
-{% for content_line in accordion_content %}
+{% for content_line in content_lines %}
   {%- unless content_line == "" -%}
     {% comment %} check if has heading annotation {% endcomment %}
     {%- liquid
       assign heading_check_array = content_line | split: HEADING
       assign heading_check_array_open = content_line | split: HEADING_OPEN
     -%}
-    {{ heading_check_array }}
     {% comment %} closing accordion before adding a new one {% endcomment %}
     {%- if heading_check_array[0] == blank and line_number != 0 -%}
         </div>
@@ -26,11 +27,11 @@
       <details 
         class="cuppe-details" 
         {%- if heading_check_array_open[0] == blank -%}
-          open="open"
+          open=""
         {%- endif -%}
       >
         <summary class="cuppe-summary cuppe-font-accordion-label">
-          {{ heading_check_array_open[1] | default: heading_check_array[1] }}
+          {{ heading_check_array_open[1] | default: heading_check_array[1] | prepend: "<p>" }}
         </summary>
 
         <div class="cuppe-details-content cuppe-font-accordion-content">
@@ -45,7 +46,7 @@
       </div>
     </details>
   {%- else -%}
-    {%- increment line_number -%}
+    {%- assign line_number = line_number | plus: 1 -%}
   {%- endif -%}
 {% endfor %}
 
