@@ -1,0 +1,66 @@
+{%- liquid
+  assign HEADING = '<p>====heading'
+  assign HEADING_OPEN = '<p>====heading:open'
+
+  assign line_number = 0
+  assign total_lines = accordion_content.size
+  assign last_line_number = total_lines | minus: 1
+-%}
+
+{% for content_line in accordion_content %}
+  {%- unless content_line == "" -%}
+    {% comment %} check if has heading annotation {% endcomment %}
+    {%- liquid
+      assign heading_check_array = content_line | split: HEADING
+      assign heading_check_array_open = content_line | split: HEADING_OPEN
+    -%}
+    {{ heading_check_array }}
+    {% comment %} closing accordion before adding a new one {% endcomment %}
+    {%- if heading_check_array[0] == blank and line_number != 0 -%}
+        </div>
+      </details>
+    {%- endif -%}
+
+    {% if heading_check_array[0] == blank %}
+      {% comment %} add an accordion with a label {% endcomment %}
+      <details 
+        class="cuppe-details" 
+        {%- if heading_check_array_open[0] == blank -%}
+          open="open"
+        {%- endif -%}
+      >
+        <summary class="cuppe-summary cuppe-font-accordion-label">
+          {{ heading_check_array_open[1] | default: heading_check_array[1] }}
+        </summary>
+
+        <div class="cuppe-details-content cuppe-font-accordion-content">
+    {%- else -%}
+      {% comment %} accordion body content {% endcomment %}
+      {{ content_line }}
+    {%- endif -%}
+  {%- endunless -%}
+
+  {% comment %}  {% endcomment %}
+  {%- if line_number == last_line_number -%}
+      </div>
+    </details>
+  {%- else -%}
+    {%- increment line_number -%}
+  {%- endif -%}
+{% endfor %}
+
+{% comment %} <details 
+  class="cuppe-details" 
+  {% if accordion_collapse %}open="open"{% endif %}
+>
+  <summary class="cuppe-summary cuppe-font-accordion-label">
+    {{ accordion_label }}
+  </summary>
+  
+  <div class="cuppe-details-content cuppe-font-accordion-content">
+    {% if accordion_content != blank %}
+      <div>
+      </div> 
+    {% endif %}
+  </div>
+</details> {% endcomment %}

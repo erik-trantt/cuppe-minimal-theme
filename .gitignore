@@ -7,3 +7,7 @@ config/settings_data.json
 # IntelliJ IDEA
 .idea
 .idea/*
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
