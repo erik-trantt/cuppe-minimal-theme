@@ -1,6 +1,7 @@
 {%- liquid
-  assign HEADING = '<p>=====heading'
-  assign HEADING_OPEN = '<p>=====heading:open'
+  assign ACCORDION_START = '<p>=====heading'
+  assign ACCORDION_OPEN = '<p>=====heading:open'
+  assign ACCORDION_END = '<p>=====end'
 
   assign line_number = 0
   assign total_lines = accordion_content.size
@@ -13,25 +14,26 @@
   {%- unless content_line == "" -%}
     {% comment %} check if has heading annotation {% endcomment %}
     {%- liquid
-      assign heading_check_array = content_line | split: HEADING
-      assign heading_check_array_open = content_line | split: HEADING_OPEN
+      assign accordion_check_array = content_line | split: ACCORDION_START
+      assign accordion_check_array_open = content_line | split: ACCORDION_OPEN
+      assign accordion_check_array_end = content_line | split: ACCORDION_END
     -%}
     {% comment %} closing accordion before adding a new one {% endcomment %}
-    {%- if heading_check_array[0] == blank and line_number != 0 -%}
+    {%- if (accordion_check_array[0] == blank and line_number != 0) or accordion_check_array_end[0] == blank -%}
         </div>
       </details>
     {%- endif -%}
 
-    {% if heading_check_array[0] == blank %}
+    {% if accordion_check_array[0] == blank %}
       {% comment %} add an accordion with a label {% endcomment %}
       <details 
         class="cuppe-details" 
-        {%- if heading_check_array_open[0] == blank -%}
+        {%- if accordion_check_array_open[0] == blank -%}
           open=""
         {%- endif -%}
       >
         <summary class="cuppe-summary cuppe-font-accordion-label">
-          {{ heading_check_array_open[1] | default: heading_check_array[1] | prepend: "<p>" }}
+          {{ accordion_check_array_open[1] | default: accordion_check_array[1] | prepend: "<p>" }}
         </summary>
 
         <div class="cuppe-details-content cuppe-font-accordion-content">
