@@ -189,6 +189,9 @@ $preLarge: $large - $viewportIncrement;
   padding-top: 1rem;
 }
 .cuppe-details-content {
+  animation-duration: 500ms;
+  animation-name: slidein;
+  animation-direction: alternate;
   opacity: 0;
   line-height: 28px;
   transition: all 500ms;
@@ -207,14 +210,14 @@ $preLarge: $large - $viewportIncrement;
 @keyframes slidein {
   from {
     opacity: 0;
-    top: -10px;
-    height: 0;
+    font-size: unset;
+    padding: 0 1rem;
   }
 
   to {
     opacity: 1;
-    top: 0px;
-    height: auto;
+    font-size: 1rem;
+    padding: 1.25rem;
   }
 }
 
