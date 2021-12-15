@@ -19,7 +19,7 @@
       assign accordion_check_array_end = content_line | split: ACCORDION_END
     -%}
     {% comment %} closing accordion before adding a new one {% endcomment %}
-    {%- if (accordion_check_array[0] == blank and line_number != 0) or accordion_check_array_end[0] == blank -%}
+    {%- if accordion_check_array_end[0] == blank or accordion_check_array[0] == blank and line_number != 0 -%}
         </div>
       </details>
     {%- endif -%}
