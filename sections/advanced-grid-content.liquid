@@ -52,14 +52,14 @@
                   <div class="cuppe-img image-orders">
                     {% if block.settings.image != blank %}
                       <noscript>
-                        {{ block.settings.image | img_url: '300x300' | img_tag: image.alt, 'feature-row__image-no-js' }}
+                        {{ block.settings.image | image_url: width: auto, height: auto | image_tag: image.alt, 'feature-row__image-no-js' }}
                       </noscript>
                       <img class="cuppe-featured-image"
                         loading="lazy"
                         width="auto"
                         height="auto"
-                        src="{{ block.settings.image | img_url: '300x300' }}"
-                        data-src="{{ block.settings.image | img_url: '300x300' }}"
+                        src="{{ block.settings.image | image_url: width: auto, height: auto }}"
+                        data-src="{{ block.settings.image | image_url: width: auto, height: auto }}"
                         data-widths="[360, 540, 720, 900, 1080]"
                         data-aspectratio="{{ block.settings.image.aspect_ratio }}"
                         data-sizes="auto"
@@ -137,196 +137,201 @@
 </div>
 
 {% schema %}
-  {
-    "name": "Custom grid",
-    "max_blocks": 9,
-    "settings": [
-      {
-        "type": "header",
-        "content": "Advanced featured rows"
-      },
-      {
-        "type": "paragraph",
-        "content": "Each featured row can contain 1 text block and 1 media block, and the positions can be switched between left or right."
-      },
-      {
-        "id": "title",
-        "type": "text",
-        "label": "Heading"
-      },
-      {
-        "type": "text",
-        "id": "button_label",
-        "label": "Button Label"
-      },
-      {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button Link"
-      },
-      {
-        "type": "radio",
-        "id": "layout",
-        "label": "Layout",
-        "options": [
-          {
-            "value": "row",
-            "label": "Row"
-          },
-          {
-            "value": "grid-4x",
-            "label": "Grid 4x with video"
-          }
-        ],
-        "default": "row"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "Image block",
-        "type": "block-image",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-          },
-          {
-            "type": "richtext",
-            "id": "text",
-            "label": "Description text"
-          },
-          {
-            "type": "checkbox",
-            "id": "alignment",
-            "label": "Image first?",
-            "default": true
-          }
-        ]
-      },
-      {
-        "name": "Video block",
-        "type": "block-video",
-        "settings": [
-          {
-            "type": "video_url",
-            "id": "product_description_video",
-            "label": "Product description video",
-            "accept": [
-              "youtube",
-              "vimeo"
-            ]
-          },
-          {
-            "type": "richtext",
-            "id": "text",
-            "label": "Description text"
-          },
-          {
-            "type": "checkbox",
-            "id": "alignment",
-            "label": "Video first?",
-            "default": true
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Custom grid",
-        "category": {
-          "cs": "Pokročilé rozvržení",
-          "da": "Avanceret layout",
-          "de": "Komplizierteres Layout",
-          "en": "Advanced layout",
-          "es": "Diseño avanzado",
-          "fi": "Monimutkaisempi layout",
-          "fr": "Mise en page avancée",
-          "hi": "उन्नत लेआउट",
-          "it": "Layout avanzato",
-          "ja": "高度なレイアウト",
-          "ko": "고급 레이아웃",
-          "nb": "Avansert oppsett",
-          "nl": "Geavanceerde opmaak",
-          "pl": "Zaawansowany układ",
-          "pt-BR": "Layout avançado",
-          "pt-PT": "Esquema avançado",
-          "sv": "Avancerad layout",
-          "th": "เลย์เอาท์ขั้นสูง",
-          "tr": "Gelişmiş düzen",
-          "vi": "Bố cục nâng cao",
-          "zh-CN": "高级布局",
-          "zh-TW": "進階版面配置"
+{
+  "name": "Custom grid",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Advanced featured rows"
+    },
+    {
+      "type": "paragraph",
+      "content": "Each featured row can contain 1 text block and 1 media block, and the positions can be switched between left or right."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "radio",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "row",
+          "label": "Row"
         },
-        "settings": {
-          "title": "4x Row"
+        {
+          "value": "grid-4x",
+          "label": "Grid 4x with video"
+        }
+      ],
+      "default": "row"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Image block",
+      "type": "block-image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
-        "blocks": [
-          {
-            "type": "block-image"
-          },
-          {
-            "type": "block-image"
-          },
-          {
-            "type": "block-image"
-          },
-          {
-            "type": "block-image"
-          }
-        ]
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description text"
+        },
+        {
+          "type": "checkbox",
+          "id": "alignment",
+          "label": "Image first?",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "Video block",
+      "type": "block-video",
+      "settings": [
+        {
+          "type": "video_url",
+          "id": "product_description_video",
+          "label": "Product description video",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description text"
+        },
+        {
+          "type": "checkbox",
+          "id": "alignment",
+          "label": "Video first?",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom grid",
+      "category": {
+        "cs": "Pokročilé rozvržení",
+        "da": "Avanceret layout",
+        "de": "Komplizierteres Layout",
+        "en": "Advanced layout",
+        "es": "Diseño avanzado",
+        "fi": "Monimutkaisempi layout",
+        "fr": "Mise en page avancée",
+        "hi": "उन्नत लेआउट",
+        "it": "Layout avanzato",
+        "ja": "高度なレイアウト",
+        "ko": "고급 레이아웃",
+        "nb": "Avansert oppsett",
+        "nl": "Geavanceerde opmaak",
+        "pl": "Zaawansowany układ",
+        "pt-BR": "Layout avançado",
+        "pt-PT": "Esquema avançado",
+        "sv": "Avancerad layout",
+        "th": "เลย์เอาท์ขั้นสูง",
+        "tr": "Gelişmiş düzen",
+        "vi": "Bố cục nâng cao",
+        "zh-CN": "高级布局",
+        "zh-TW": "進階版面配置"
       },
-      {
-        "name": "Custom grid 4x with video",
-        "category": {
-          "cs": "Pokročilé rozvržení",
-          "da": "Avanceret layout",
-          "de": "Komplizierteres Layout",
-          "en": "Advanced layout",
-          "es": "Diseño avanzado",
-          "fi": "Monimutkaisempi layout",
-          "fr": "Mise en page avancée",
-          "hi": "उन्नत लेआउट",
-          "it": "Layout avanzato",
-          "ja": "高度なレイアウト",
-          "ko": "고급 레이아웃",
-          "nb": "Avansert oppsett",
-          "nl": "Geavanceerde opmaak",
-          "pl": "Zaawansowany układ",
-          "pt-BR": "Layout avançado",
-          "pt-PT": "Esquema avançado",
-          "sv": "Avancerad layout",
-          "th": "เลย์เอาท์ขั้นสูง",
-          "tr": "Gelişmiş düzen",
-          "vi": "Bố cục nâng cao",
-          "zh-CN": "高级布局",
-          "zh-TW": "進階版面配置"
+      "settings": {
+        "title": "4x Row"
+      },
+      "blocks": [
+        {
+          "type": "block-image"
         },
-        "settings": {
-          "title": "4x Row",
-          "layout": "grid-4x"
+        {
+          "type": "block-image"
         },
-        "blocks": [
-          {
-            "type": "block-image"
-          },
-          {
-            "type": "block-image"
-          },
-          {
-            "type": "block-image"
-          },
-          {
-            "type": "block-image"
-          },
-          {
-            "type": "block-video"
-          }
-        ]
-      }
-    ],
-    "templates": ["article", "index", "page", "product"]
-  }
+        {
+          "type": "block-image"
+        },
+        {
+          "type": "block-image"
+        }
+      ]
+    },
+    {
+      "name": "Custom grid 4x with video",
+      "category": {
+        "cs": "Pokročilé rozvržení",
+        "da": "Avanceret layout",
+        "de": "Komplizierteres Layout",
+        "en": "Advanced layout",
+        "es": "Diseño avanzado",
+        "fi": "Monimutkaisempi layout",
+        "fr": "Mise en page avancée",
+        "hi": "उन्नत लेआउट",
+        "it": "Layout avanzato",
+        "ja": "高度なレイアウト",
+        "ko": "고급 레이아웃",
+        "nb": "Avansert oppsett",
+        "nl": "Geavanceerde opmaak",
+        "pl": "Zaawansowany układ",
+        "pt-BR": "Layout avançado",
+        "pt-PT": "Esquema avançado",
+        "sv": "Avancerad layout",
+        "th": "เลย์เอาท์ขั้นสูง",
+        "tr": "Gelişmiş düzen",
+        "vi": "Bố cục nâng cao",
+        "zh-CN": "高级布局",
+        "zh-TW": "進階版面配置"
+      },
+      "settings": {
+        "title": "4x Row",
+        "layout": "grid-4x"
+      },
+      "blocks": [
+        {
+          "type": "block-image"
+        },
+        {
+          "type": "block-image"
+        },
+        {
+          "type": "block-image"
+        },
+        {
+          "type": "block-image"
+        },
+        {
+          "type": "block-video"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    "article",
+    "index",
+    "page",
+    "product"
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}
@@ -414,4 +419,5 @@
     }
   }
  
+
 {% endstylesheet %}

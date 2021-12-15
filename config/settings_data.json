@@ -279,18 +279,28 @@
               "text": "<p><strong>DISHWASHER SAFE<\/strong><\/p><p>Makes cleaning easier<\/p>",
               "alignment": false
             }
+          },
+          "91f93528-1e77-4f15-bd2d-e13144c7aedd": {
+            "type": "block-video",
+            "settings": {
+              "product_description_video": "https:\/\/www.youtube.com\/watch?v=NaCzsiVBQf8",
+              "text": "",
+              "alignment": true
+            }
           }
         },
         "block_order": [
           "1600649329619",
           "1600611042308",
           "1600653832440",
-          "1600653800513"
+          "1600653800513",
+          "91f93528-1e77-4f15-bd2d-e13144c7aedd"
         ],
         "settings": {
           "title": "Our Best Features",
           "button_label": "Shop all",
-          "button_link": "shopify:\/\/collections\/all-products-collection"
+          "button_link": "shopify:\/\/collections\/all-products-collection",
+          "layout": "grid-4x"
         }
       },
       "1600751200252": {
@@ -366,7 +376,8 @@
         "settings": {
           "title": "Collaboration",
           "button_label": "",
-          "button_link": ""
+          "button_link": "",
+          "layout": "row"
         }
       },
       "1600761584396": {

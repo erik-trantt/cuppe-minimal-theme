@@ -20,14 +20,14 @@
 {% capture media_layout %}
   {% if image != blank %}
     <noscript>
-      {{ image | img_url: '300x300' | img_tag: image.alt, 'feature-row__image-no-js' }}
+      {{ image | image_url: width: auto, height: auto | image_tag: image.alt, 'feature-row__image-no-js' }}
     </noscript>
     <img class="cuppe-featured-image"
       loading="lazy"
       width="auto"
       height="auto"
-      src="{{ image | img_url: '300x300' }}"
-      data-src="{{ image | img_url: '300x300' }}"
+      src="{{ image | image_url: width: auto, height: auto }}"
+      data-src="{{ image | image_url: width: auto, height: auto }}"
       data-widths="[360, 540, 720, 900, 1080]"
       data-aspectratio="{{ image.aspect_ratio }}"
       data-sizes="auto"
