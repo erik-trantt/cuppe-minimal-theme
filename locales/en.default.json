@@ -324,6 +324,11 @@
   "shopify": {
     "links": {
       "powered_by_shopify": "\n"
+    },
+    "checkout": {
+      "contact": {
+        "address1_label": "Address (No post office, PO box, locked bag, parcel locker or parcel collect location please)"
+      }
     }
   }
 }

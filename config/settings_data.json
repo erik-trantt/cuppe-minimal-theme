@@ -71,7 +71,7 @@
           "drawer_search_enable": false,
           "show_announcement": true,
           "home_page_only": false,
-          "text": "BE CHRISTMAS READY 🎄 | FREE AU SHIPPING FOR ORDERS OVER $90.",
+          "text": "FREE AU SHIPPING FOR ORDERS OVER $90.",
           "link": "https:\/\/vsovrf3ofypx5qiu-4767088675.shopifypreview.com\/collections\/all-products-collection",
           "color_bg": "#000000",
           "color_text": "#ffffff"
@@ -97,8 +97,8 @@
               "image_overlay": false,
               "image_overlay_opacity": 100,
               "text_alignment": "right",
-              "slide_heading": "Giving Season",
-              "slide_subheading": "Gift sustainable this holiday season.",
+              "slide_heading": "Leakproof Reusable Tumbler",
+              "slide_subheading": "Thoughtfully crafted to complement your daily ritual",
               "button_label": "SHOP NOW",
               "button_link": "shopify:\/\/collections\/all",
               "slide_text_color": "#1f2021",
@@ -114,8 +114,8 @@
               "image_overlay": true,
               "image_overlay_opacity": 3,
               "text_alignment": "left",
-              "slide_heading": "It's time to get festive !",
-              "slide_subheading": "Shop our Go Green Lunch Bag.",
+              "slide_heading": "",
+              "slide_subheading": "",
               "button_label": "Shop now",
               "button_link": "shopify:\/\/products\/lunch-bag",
               "slide_text_color": "#ffffff",
@@ -131,8 +131,8 @@
               "image_overlay": true,
               "image_overlay_opacity": 0,
               "text_alignment": "right",
-              "slide_heading": "Leakproof Reusable Tumbler",
-              "slide_subheading": "Thoughtfully crafted to complement your daily ritual!",
+              "slide_heading": "",
+              "slide_subheading": "",
               "button_label": "Shop now",
               "button_link": "shopify:\/\/collections\/all-products-collection",
               "slide_text_color": "#ffffff",
@@ -148,8 +148,8 @@
               "image_overlay": true,
               "image_overlay_opacity": 0,
               "text_alignment": "left",
-              "slide_heading": "Dual-use lid",
-              "slide_subheading": "Hot or cold beverage - at your service!",
+              "slide_heading": "",
+              "slide_subheading": "",
               "button_label": "Shop now",
               "button_link": "shopify:\/\/collections\/all-products-collection",
               "slide_text_color": "#ffffff",
@@ -279,28 +279,18 @@
               "text": "<p><strong>DISHWASHER SAFE<\/strong><\/p><p>Makes cleaning easier<\/p>",
               "alignment": false
             }
-          },
-          "91f93528-1e77-4f15-bd2d-e13144c7aedd": {
-            "type": "block-video",
-            "settings": {
-              "product_description_video": "https:\/\/www.youtube.com\/watch?v=NaCzsiVBQf8",
-              "text": "",
-              "alignment": true
-            }
           }
         },
         "block_order": [
           "1600649329619",
           "1600611042308",
           "1600653832440",
-          "1600653800513",
-          "91f93528-1e77-4f15-bd2d-e13144c7aedd"
+          "1600653800513"
         ],
         "settings": {
           "title": "Our Best Features",
           "button_label": "Shop all",
-          "button_link": "shopify:\/\/collections\/all-products-collection",
-          "layout": "grid-4x"
+          "button_link": "shopify:\/\/collections\/all-products-collection"
         }
       },
       "1600751200252": {
@@ -312,7 +302,7 @@
       "1600838211715": {
         "type": "decorative-patterns",
         "settings": {
-          "pattern_color": "#e7d5ca",
+          "pattern_color": "#efe7e2",
           "pattern_choice": "waves-bottom",
           "display_on": "mobile"
         }
@@ -337,7 +327,7 @@
           "text": "<p><a href=\"\/pages\/reusable-bubble-tea-tumbler-about-us\" title=\"Our Story\">Learn More<\/a><\/p><p><\/p><p><\/p>",
           "heading_text_size": "small",
           "text_size": "medium",
-          "background_color": "#ffffff"
+          "background_color": "#efe7e2"
         }
       },
       "1622348505c80bbe39": {
@@ -376,8 +366,7 @@
         "settings": {
           "title": "Collaboration",
           "button_label": "",
-          "button_link": "",
-          "layout": "row"
+          "button_link": ""
         }
       },
       "1600761584396": {
