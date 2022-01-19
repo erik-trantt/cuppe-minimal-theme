@@ -69,7 +69,7 @@
                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                     {% endif %}
                   </div>
-                  
+
                   {% if text != blank %}
                   <div class="center" style="padding: 5px 20px; order: 2;">
                     {% for text_line in text %}
@@ -77,8 +77,8 @@
                         {{ text_line }}
                       {%- endunless -%}
                     {% endfor %}
-                  </div> 
-                  {% endif %}               
+                  </div>
+                  {% endif %}
                 </li>
 
               {%- when "block-video" -%}
@@ -96,7 +96,7 @@
                         {{ text_line }}
                       {%- endunless -%}
                     {% endfor %}
-                  </div> 
+                  </div>
                   {%- endif -%}
                 </li>
               {%- else -%}
@@ -126,13 +126,15 @@
     </div>
 
     <!-- Button link -->
-    <div style="margin-top: 2rem; text-align: center;">
-      <a class="" style="text-decoration: underline; font-size: 1.15rem; line-height: 60px;" 
-          href="{{ section.settings.button_link }}" 
-          title="{{ section.settings.button_label }}">
-        {{ section.settings.button_label | escape }}
-      </a>
-    </div>
+    {% if section.settings.button_link != blank %}
+      <div style="margin-top: 2rem; text-align: center;">
+        <a class="" style="text-decoration: underline; font-size: 1.15rem; line-height: 60px;"
+           href="{{ section.settings.button_link }}"
+           title="{{ section.settings.button_label }}">
+          {{ section.settings.button_label | escape }}
+        </a>
+      </div>
+    {% endif %}
   </div>
 </div>
 
@@ -378,8 +380,8 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: repeat(2, 50%);
-    grid-template-areas: 
-      "image1 image2" 
+    grid-template-areas:
+      "image1 image2"
       "image3 image3"
       "video video";
   }
@@ -407,8 +409,8 @@
     .cuppe__grid {
       grid-template-rows: 1fr 1fr;
       grid-template-columns: 25% 25% 50%;
-      grid-template-areas: 
-        ". . video" 
+      grid-template-areas:
+        ". . video"
         ". . video";
     }
     .cuppe__grid .cuppe__block-video {
@@ -418,6 +420,6 @@
       max-width: 180px;
     }
   }
- 
+
 
 {% endstylesheet %}
