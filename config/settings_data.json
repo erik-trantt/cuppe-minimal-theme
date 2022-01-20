@@ -290,7 +290,8 @@
         "settings": {
           "title": "Our Best Features",
           "button_label": "Shop all",
-          "button_link": "shopify:\/\/collections\/all-products-collection"
+          "button_link": "shopify:\/\/collections\/all-products-collection",
+          "layout": "row"
         }
       },
       "1600751200252": {
@@ -366,7 +367,8 @@
         "settings": {
           "title": "Collaboration",
           "button_label": "",
-          "button_link": ""
+          "button_link": "",
+          "layout": "row"
         }
       },
       "1600761584396": {
@@ -403,12 +405,12 @@
       "1599476129885",
       "1599991567926",
       "1600610957392",
-      "1637882988b00f2e35",
+      "16018953336451e6f0",
       "1622348505c80bbe39",
-      "1600751200252",
+      "1637882988b00f2e35",
       "1622355740d66c1a3d",
       "1600761584396",
-      "16018953336451e6f0"
+      "1600751200252"
     ],
     "blocks": {
       "5a427771da5895a930": {
